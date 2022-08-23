@@ -14,11 +14,13 @@ Stages could be implemented through branches in the Git repository, but we do ad
 $ cd ~/git/demo3-repo/clusters/bases/git-repos
 ```
 
-Using --export allows us to sidestep kubectl and kubeconfig configuration here. We just let the leaf cluster flux pick this up.
+Using --export allows us to sidestep kubectl and kubeconfig configuration here. We just let the leaf cluster flux pick this up. 
+We are reusing the git-provider-credentials here that were set up as part of the flux bootstrap process. This application repository is in the same GitHub org and the token in the git-provider-credential secret will allow access.
 
 ```bash
 $ flux create source git application-podinfo \
-       --url=ssh://git@github.com/weavegitops/application-podinfo.git \
+       --url=https://github.com/weavegitops/application-podinfo.git \
+       --secret-ref git-provider-credentials \
        --branch=main \
        --interval=1m \
        --private-key-file=$HOME/.ssh/id_ecdsa \
