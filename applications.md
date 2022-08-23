@@ -29,7 +29,7 @@ $ flux create source git application-podinfo \
 Add, commit and push to git.
 
 ```bash
-$ git add application-podinfo-gitrepo.yaml && git commit -m "add application-podinfo-gitrepo.yaml' && git push
+$ git add application-podinfo-gitrepo.yaml && git commit -m 'add application-podinfo-gitrepo.yaml' && git push
 ```
 
 You can wait for the leaf cluster flux-system kustomization to pick this up, or hit the 'sync' button in the WG UI.
