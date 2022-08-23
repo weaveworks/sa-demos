@@ -6,6 +6,8 @@ If you want to be able to add your application to any cluster. It is best to hav
 
 Put your GitRepository Object into ./clusters/bases/git-repos
 
+## Appplication-Podinfo-UAT branch example 
+
 The following example is using branches as a staging strategy and has a uat (User Acceptance Test) branch. 
 - note that branches as staging strategy are not the recommended approach, but we have customers with that strategy
   - the better strategy is using subdirectories and tags or separate repositories for stages
