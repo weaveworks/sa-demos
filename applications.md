@@ -33,3 +33,11 @@ $ git add application-podinfo-gitrepo.yaml && git commit -m 'add application-pod
 ```
 
 You can wait for the leaf cluster flux-system kustomization to pick this up, or hit the 'sync' button in the WG UI.
+
+## Adding the Application in the WG UI
+
+You can now go to the WG UI Applications -> Add Application and fill in the required values : 
+![Screenshot from 2022-08-23 12-40-23](https://user-images.githubusercontent.com/2788194/186138591-3f2ea82c-f4d6-4189-aa3d-489dbd3fca37.png)
+
+Create and Merge the pull request. To deploy the podinfo app to the cluster.
+
