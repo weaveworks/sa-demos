@@ -14,6 +14,8 @@ The following example is using branches as a staging strategy and has a uat (Use
 
 ```bash
 $ cd ~/git/demo3-repo/clusters/bases/git-repos
+```
+```bash
 $ flux create source git application-podinfo-uat \
        --url=ssh://git@github.com/weavegitops/application-podinfo.git \
        --branch=uat \
@@ -21,4 +23,10 @@ $ flux create source git application-podinfo-uat \
        --private-key-file=$HOME/.ssh/id_ecdsa \
        -n flux-system \
        --export > application-podinfo-uat.yaml
+```
+```bash
+$ git add application-podinfo-uat.yaml
+```
+```bash
+$ git commit -m "add application-podinfo-uat.yaml' && git push
 ```
