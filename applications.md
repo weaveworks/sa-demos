@@ -15,6 +15,9 @@ The following example is using branches as a staging strategy and has a uat (Use
 ```bash
 $ cd ~/git/demo3-repo/clusters/bases/git-repos
 ```
+
+Using --export allows us to sidestep kubectl and kubeconfig configuration here. We just let the leaf cluster flux pick this up.
+
 ```bash
 $ flux create source git application-podinfo-uat \
        --url=ssh://git@github.com/weavegitops/application-podinfo.git \
@@ -24,9 +27,9 @@ $ flux create source git application-podinfo-uat \
        -n flux-system \
        --export > application-podinfo-uat.yaml
 ```
+
+Add, commit and push to git.
+
 ```bash
-$ git add application-podinfo-uat.yaml
-```
-```bash
-$ git commit -m "add application-podinfo-uat.yaml' && git push
+$ git add application-podinfo-uat.yaml && git commit -m "add application-podinfo-uat.yaml' && git push
 ```
