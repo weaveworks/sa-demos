@@ -33,3 +33,5 @@ Add, commit and push to git.
 ```bash
 $ git add application-podinfo-uat.yaml && git commit -m "add application-podinfo-uat.yaml' && git push
 ```
+
+You can wait for the leaf cluster flux-system kustomization to pick this up, or hit the 'sync' button in the WG UI.
