@@ -11,17 +11,34 @@ We need to update 2 cli tools, the IAM Cloud Formation Stack and redo the capa-c
 Download the latest clusterctl and clusterawsadm tools :
 ...
 
+## Authenticating to AWS on the CLI
+
+We are using an interesting combination of AWS and Google. Our account managment is in Google and we do have a pass through authentication with AWS. You should install gsts on Linux or Mac to get CLI access. 
+
+Note : On linux there is another default gsts tool that will conflict with what we need. This should be the right one : https://github.com/ruimarinho/gsts
+
+
+
 ### Update CloudFormation IAM Stack
 
 There is a CloudFormation Stack that is installed into the AWS account. While the CloudFormation Stack is regional, the IAM accounts are global. The stack is currently installed into "eu-west-1". The default name of this CF Stack is 'cluster-api-provider-aws-sigs-k8s-io'.
 
-You can try updating the stack with : 
+The next command needs to run with your weaveworks-cx account on the cli. You can try updating the stack with : 
 ```
 $ clusterawsadm bootstrap iam create-cloudformation-stack --region eu-west-1
 ```
 
 If this does not work, delete the Stack from the UI and install it again fresh from the CLI.
 
+I was unable to use the EKS specific configuration
+```
+$ clusterawsadm bootstrap iam create-cloudformation-stack --config eks-bootstrap-config.yaml --region eu-west-1
+Attempting to create AWS CloudFormation stack cluster-api-provider-aws-sigs-k8s-io
+I0829 10:54:27.259486 1122583 service.go:68] AWS Cloudformation stack "cluster-api-provider-aws-sigs-k8s-io" already exists, updating
+Error: failed to update AWS CloudFormation stack: ResourceNotReady: failed waiting for successful resource state
+```
+
+### Update the capa-controller
 
 An update requires you to delete the old capa controller.
 ```
@@ -31,7 +48,7 @@ $ kubectl delete ns capa-system
 Install the latest capa-controller
 ```
 $ cd ~/git/cx-presales/lutzadm/scripts
-$ ./
+$ ./capa-eks-setup.sh ../demo2.conf
 ```
 
 Install the aws cli. 
