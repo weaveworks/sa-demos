@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Add env vars in your ~/.bashrc or ~/.zshrc
+
+# example roles you might use
+# export AWS_ROLE_NAME="arn:aws:iam::<ACCOUNT-ID>:role/<ROLENAME>"
+export AWS_ROLE_CORP="arn:aws:iam::443596574776:role/AdministratorAccess"
+export AWS_ROLE_CX="arn:aws:iam::482649550366:role/AdministratorAccess"
+export AWS_ROLE_GENERAL="arn:aws:iam::457472006214:role/AdministratorAccess"
+
+
+gsts --idp-id C0203uytv --sp-id 656726301855 --username lutz@weave.works --engine chromium --region eu-central-1 --aws-role-arn "$AWS_ROLE_CX" $@
