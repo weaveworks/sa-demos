@@ -88,6 +88,8 @@ https://docs.aws.amazon.com/eks/latest/userguide/cni-iam-role.html
 
 So I tried :
 ```
+$ eksctl utils associate-iam-oidc-provider --region=eu-central-1 --cluster=lutzeks7 --approve
+
 $ eksctl create iamserviceaccount \
      --name aws-node \
      --namespace kube-system \
@@ -97,9 +99,13 @@ $ eksctl create iamserviceaccount \
      --override-existing-serviceaccounts \
      --region eu-central-1 \
      --approve 
-     
-Error: unable to create iamserviceaccount(s) without IAM OIDC provider enabled
+
 ```
+
+I can't access the cluster any more. Neighter the STS nor the LutzAdm way will give me access.
+
+
+
 
 
 
