@@ -2,8 +2,6 @@
 
 # How to update the AWS capa-controller and AWS IAM stack 
 
-Authentication to the management clusters works with AWS IAM. I'm using LutzAdm IAM account for this. You can find the Keys in 1Password under "WGE SA Demo Env EKS IAM Secrets - LutzAdm" .
-
 The management clusters are installed with the "weaveworks-cx" AWS account. Go to Gmail -> Google Apps -> Amazon Web Services to access the AWS UI.
 
 We need to update 2 cli tools, the IAM Cloud Formation Stack and redo the capa-controller on the demo management EKS cluster.
@@ -15,9 +13,7 @@ Download the latest clusterctl and clusterawsadm tools :
 
 We are using an interesting combination of AWS and Google. Our account managment is in Google and we do have a pass through authentication with AWS. You should install gsts on Linux or Mac to get CLI access. 
 
-Note : On linux there is another default gsts tool that will conflict with what we need. This should be the right one : https://github.com/ruimarinho/gsts
-
-
+Note : On linux there is another default gsts tool that will conflict with what we need. This should be the right one : https://github.com/ruimarinho/gsts . You can use [aws-login](./tools/aws-login) to authenticate with gsts. This will open a Browser locally and you can authenticate with your Weaveworks login. There will be an AWS_PROFILE=sts env var afterwards. 
 
 ### Update CloudFormation IAM Stack
 
@@ -39,6 +35,14 @@ Error: failed to update AWS CloudFormation stack: ResourceNotReady: failed waiti
 ```
 
 ### Update the capa-controller
+
+Authentication to the management clusters works with AWS IAM. I'm using LutzAdm IAM account for this. You can find the Keys in 1Password under "WGE SA Demo Env EKS IAM Secrets - LutzAdm" . You will need to remove the AWS_PROFILE var from your environment at this point :
+```
+$ unset AWS_PROFILE
+```
+
+Now set the vars for the IAM account.
+...
 
 An update requires you to delete the old capa controller.
 ```
