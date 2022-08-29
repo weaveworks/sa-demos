@@ -80,3 +80,27 @@ $ kubectl logs aws-node-l7zp9 -n kube-system
 
 This might be the same as:
 https://github.com/aws/amazon-vpc-cni-k8s/issues/1847
+
+This might fix it?
+
+But we might be missing permission cni iam role?
+https://docs.aws.amazon.com/eks/latest/userguide/cni-iam-role.html
+
+So I tried :
+```
+$ eksctl create iamserviceaccount \
+     --name aws-node \
+     --namespace kube-system \
+     --cluster lutzeks7 \
+     --role-name "AmazonEKSVPCCNIRole" \
+     --attach-policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy \
+     --override-existing-serviceaccounts \
+     --region eu-central-1 \
+     --approve 
+     
+Error: unable to create iamserviceaccount(s) without IAM OIDC provider enabled
+```
+
+
+
+
