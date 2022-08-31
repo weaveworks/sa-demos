@@ -51,11 +51,9 @@ $ ku 24 get nodes
 ```
 if you are too quick or tailscale is not up, connections will fail
 
-first response you might get is an empty ressource list
-
-you control plane will show up as not ready initially
-
-soon after that the worker nodes will join
+* first response you might get is an empty ressource list
+* the control plane will show up as not ready initially
+* soon after that the worker nodes will join
 
 I’m switching to looking at the pods at this stage
 ```
@@ -70,7 +68,9 @@ $ watch -n 1 ku 24 get pods -o wide -A
 
 All pods should have working IPs and will see the profiles deploy in layers 
 * 1st cert-manager
-* 2nd the prometheus pods and the alert manager should be deployed after ~2-3 min.
+* 2nd ingress-nginx and weave-policy-agent
+* 3rd 
+* lastly prometheus the prometheus pods and the alert manager should be deployed after ~2-3 min.
 
 Optional Cluster Lifecycle Management with CAPI : 
 This is GitOps, we can do cluster management through Git.
