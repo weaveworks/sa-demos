@@ -20,16 +20,22 @@ PING 172.16.20.2 (172.16.20.2) 56(84) bytes of data.
 
 ## Liquid Metal Cluster creation
 
-You will need a free cluster Number to use for the Name / IP of the cluster. 
+You will need a **free** cluster number to use for the Name / IP of the cluster. Browse the list of connected clusters and see what might be free. This number needs to be between 5 and 50. 5 and 50 should not be used.
 
 Cluster IP Base : 
 * Demo1 - 172.16.10
 * Demo2 - 172.16.20
 * Demo3 - 172.16.30
 
-You will need to identify a free Cluster number between 6 and 49. Look through the cluster list 
-
 Use the **lm-edge** template and fill in these values :
+
+* Give your Cluster a name that includes the **free** cluster number e.g. "lutz22".
+* Re-use that number for the CONTROL_PLANE_VIP and add 200 to the last part in the LOADBALANCER_IP.
+* All available K8s versions are known to work
+* We only allows for 1 Control plane machine as this is an edge scenario and we want light wheight clusters.
+* We only have cillium as networking currently.
+* I usually deploy at least 2 worker nodes.
+* You can select the bare metal host this will be installd on as this is an edge use case. It is possibe look at the bare metal hosts on the CLI. Ask lutz if you want to show this.
 
 ![Screenshot from 2022-08-31 11-12-45](https://user-images.githubusercontent.com/2788194/187643487-48a35c5f-07d1-4573-80eb-841f102aa5a9.png)
 
