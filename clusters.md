@@ -117,12 +117,10 @@ Screenshot for v0.9.4-rc1
 
 You can now go to Applications find the flux-system kustomization of your cluster and hit the sync button. Or wait a while for reconcilliation. 
 
-* The policy-cluster$NUM kustomization should appear
-
 ![Screenshot from 2022-08-31 12-12-37](https://user-images.githubusercontent.com/2788194/187655697-26997638-a005-405f-a148-3faec5fd4644.png)
 
-* You can now find the installed policies in the Policy Tab : 
-* 
+You can now find the installed policies in the Policy Tab : 
+ 
 ![Screenshot from 2022-08-31 12-13-05](https://user-images.githubusercontent.com/2788194/187655770-e413186e-a67f-4ddc-b68e-2fe7c5c8b038.png)
 
 **Please Note** Policy enforcement is disabled by default in the leaf custers. We are running in audit only mode.
