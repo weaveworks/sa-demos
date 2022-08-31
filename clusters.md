@@ -107,17 +107,25 @@ We do have existing policy in yaml format in our management repository. This mak
 4. Select the source : **flux-system**
 5. Input the path the the policy definitions in the management repo : weave-gitops-platform/demo-policies
 
+Screenshot for v0.9.3
 ![Screenshot from 2022-08-31 12-02-18](https://user-images.githubusercontent.com/2788194/187653330-b39a176d-39cd-470d-8a7b-d2e836b72d26.png)
+
+Screenshot for v0.9.4-rc1
+![Screenshot from 2022-08-31 12-11-28](https://user-images.githubusercontent.com/2788194/187655601-33bdec72-d6c0-459b-9847-19a72f6d8311.png)
 
 6. Authenticate & Merge the PR
 
 You can now go to Applications find the flux-system kustomization of your cluster and hit the sync button. Or wait a while for reconcilliation. 
+
 * The policy-cluster$NUM kustomization should appear
-* You can now find your policies in the policy tab
+
+![Screenshot from 2022-08-31 12-12-37](https://user-images.githubusercontent.com/2788194/187655697-26997638-a005-405f-a148-3faec5fd4644.png)
+
+* You can now find the installed policies in the Policy Tab : 
+* 
+![Screenshot from 2022-08-31 12-13-05](https://user-images.githubusercontent.com/2788194/187655770-e413186e-a67f-4ddc-b68e-2fe7c5c8b038.png)
 
 **Please Note** Policy enforcement is disabled by default in the leaf custers. We are running in audit only mode.
-
-
 
 # Optional Cluster Lifecycle Management with CAPI : 
 This is GitOps, we can do cluster management through Git.
