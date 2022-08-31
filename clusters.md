@@ -93,6 +93,32 @@ Go to the cluster list and click the **grafana** link. This opens the grafana pa
 * user : admin
 * pw : prom-operator
 
+## Demo Policy deployment
+
+We just installed a cluster with the weave-poliy-agent 0.4.0. This version installs only the policy CRDs and no actual policy. This is why you can't find the new cluster in the policy page. You can deploy policy easily with the new add application flow. This essestially adds a kustomization only. The GitRepository or Source needs to exist in the cluster for you to use this flow. 
+
+We do have existing policy in yaml format in our management repository. This makes it easy to deploy this policy to the new leaf cluster.
+
+* Go to Application and fill in the values :
+
+1. Name the Kustomization : policy-cluster$NUM
+2. Kustomization Namespace use : policy-system (note the field is titled wrong in 0.9.3) 
+3. Select your cluster
+4. Select the source : **flux-system**
+5. Input the path the the policy definitions in the management repo : weave-gitops-platform/demo-policies
+
+![Screenshot from 2022-08-31 12-02-18](https://user-images.githubusercontent.com/2788194/187653330-b39a176d-39cd-470d-8a7b-d2e836b72d26.png)
+
+6. Authenticate & Merge the PR
+
+You can now go to Applications find the flux-system kustomization of your cluster and hit the sync button. Or wait a while for reconcilliation. 
+* The policy-cluster$NUM kustomization should appear
+* You can now find your policies in the policy tab
+
+**Please Note** Policy enforcement is disabled by default in the leaf custers. We are running in audit only mode.
+
+
+
 # Optional Cluster Lifecycle Management with CAPI : 
 This is GitOps, we can do cluster management through Git.
 Use the UI and browse to weave-gitops/apps/capi edit mycluster24.yaml
