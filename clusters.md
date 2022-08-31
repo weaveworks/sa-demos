@@ -88,11 +88,10 @@ All pods should have working IPs and will see the profiles deploy in layers
 
 ## Demo Grafana
 
-Go to the cluster list and klick the Prometheus Link. This bring your to the Grafana login. 
+Go to the cluster list and click the **grafana** link. This opens the grafana page if tailscale is installed and up and running with --accept-routes.
 
 * user : admin
 * pw : prom-operator
-
 
 # Optional Cluster Lifecycle Management with CAPI : 
 This is GitOps, we can do cluster management through Git.
