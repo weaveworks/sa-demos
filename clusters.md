@@ -29,7 +29,7 @@ Cluster IP Base :
 
 You will need to identify a free Cluster number between 6 and 49. Look through the cluster list 
 
-Use the *lm-edge* template and fill in these values :
+Use the **lm-edge** template and fill in these values :
 
 ![Screenshot from 2022-08-31 11-12-45](https://user-images.githubusercontent.com/2788194/187643487-48a35c5f-07d1-4573-80eb-841f102aa5a9.png)
 
