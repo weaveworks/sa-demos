@@ -11,6 +11,12 @@
 ```
 
 2. Check connectivity
+Ping a machine on one of the Equinix Bare metal environments 
+```
+$ ping 172.16.20.2
+PING 172.16.20.2 (172.16.20.2) 56(84) bytes of data.
+64 bytes from 172.16.20.2: icmp_seq=1 ttl=64 time=45.2 ms
+```
 
 ## Liquid Metal Cluster creation
 
