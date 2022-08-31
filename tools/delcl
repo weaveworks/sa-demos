@@ -1,0 +1,41 @@
+#!/bin/bash
+#
+# author Lutz Lange @ weave.works
+# 
+# version 0.2
+#
+# delete a leaf clusters cli from the demo env
+##########################
+# assumptions : 
+#
+# kubectl context is set
+# lutzadm auth is in the env
+#
+# demo env number as $1
+# Leaf Cluster Name as $2
+# assumtion of repo in ~/git/demoX-repo
+
+# uncomment for debug
+#PRE=echo
+
+
+# Check we have at least 2 ARGS
+
+# Check $1 is a number
+ENV=$1
+shift
+REST="$@"
+
+REPO=$HOME/git/demo$ENV-repo/
+$PRE cd $REPO
+$PRE git pull
+
+# loop throug clusters
+for CL in $@; do
+  $PRE git rm -r clusters/default/$CL clusters/management/clusters/default/$CL.yaml
+done
+
+$PRE git commit -m "deleting leaf clusters $REST"
+$PRE git push
+
+$PRE flux reconcile kustomization flux-system --with-source
