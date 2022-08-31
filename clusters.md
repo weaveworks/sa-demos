@@ -86,6 +86,14 @@ All pods should have working IPs and will see the profiles deploy in layers
 * layer-1: ingress-nginx and weave-policy-agent
 * layer-2: prometheus
 
+## Demo Grafana
+
+Go to the cluster list and klick the Prometheus Link. This bring your to the Grafana login. 
+
+* user : admin
+* pw : prom-operator
+
+
 # Optional Cluster Lifecycle Management with CAPI : 
 This is GitOps, we can do cluster management through Git.
 Use the UI and browse to weave-gitops/apps/capi edit mycluster24.yaml
