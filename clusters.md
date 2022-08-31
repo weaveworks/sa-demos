@@ -26,5 +26,6 @@ You will need to identify a free Cluster number between 6 and 49. Look through t
 Use the lm-edge template and fill in these values :
 
 
+![Screenshot from 2022-08-31 10-04-20](https://user-images.githubusercontent.com/2788194/187626487-7424f4d5-8f7d-406b-a7de-ca5058901e3f.png)
 
-![Screenshot from 2022-08-31 09-45-29](https://user-images.githubusercontent.com/2788194/187624871-f8257a29-f04f-481e-bddf-d07add578e54.png)
+
