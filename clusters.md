@@ -67,18 +67,18 @@ $ watch -n 1 ku 24 get pods -o wide -A
 ```
 
 All pods should have working IPs and will see the profiles deploy in layers 
-* 1st cert-manager
-* 2nd ingress-nginx and weave-policy-agent
-* 3rd 
-* lastly prometheus the prometheus pods and the alert manager should be deployed after ~2-3 min.
+* layer-0: cert-manager & metalb
+* layer-1: ingress-nginx and weave-policy-agent
+* layer-2: prometheus
 
-Optional Cluster Lifecycle Management with CAPI : 
+# Optional Cluster Lifecycle Management with CAPI : 
 This is GitOps, we can do cluster management through Git.
 Use the UI and browse to weave-gitops/apps/capi edit mycluster24.yaml
 find the MachineDeployment object
 increase the replica count by 3 ( decreasing does not currently work well )
 Look at the nodes and the new pods coming up.
 
-Optional Cluster Demo - Upgrade to a new Kubernetes version. Just follow the Cluster API book. There is a recording of this, I tested this with Jose Talavera
-https://drive.google.com/file/d/1KpP216bEcef5Fh8KNXIoad1TTsSeaOLo/view?usp=drive_web
+# Optional Cluster Demo - Upgrade to a new Kubernetes version. 
+* Just follow the Cluster API book. 
+* There is a [recording](https://drive.google.com/file/d/1KpP216bEcef5Fh8KNXIoad1TTsSeaOLo/view?usp=drive_web)
 
