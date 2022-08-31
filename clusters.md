@@ -17,9 +17,9 @@
 You will need a free cluster Number to use for the Name / IP of the cluster. 
 
 Cluster IP Base : 
-Demo1 - 172.16.10
-Demo2 - 172.16.20
-Demo3 - 172.16.30
+* Demo1 - 172.16.10
+* Demo2 - 172.16.20
+* Demo3 - 172.16.30
 
 You will need to identify a free Cluster number between 6 and 49. Look through the cluster list 
 
