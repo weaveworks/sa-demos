@@ -29,13 +29,14 @@ Cluster IP Base :
 
 Use the **lm-edge** template and fill in these values :
 
-* Give your Cluster a name that includes the **free** cluster number e.g. "lutz22".
-* Re-use that number for the CONTROL_PLANE_VIP and add 200 to the last part in the LOADBALANCER_IP.
-* All available K8s versions are known to work
-* We only allows for 1 Control plane machine as this is an edge scenario and we want light wheight clusters.
-* We only have cillium as networking currently.
-* I usually deploy at least 2 worker nodes.
-* You can select the bare metal host this will be installd on as this is an edge use case. It is possibe look at the bare metal hosts on the CLI. Ask lutz if you want to show this.
+1. Give your Cluster a name that includes the **free** cluster number e.g. "lutz22".
+2. We only have cillium as CNI for now
+3. We only allows for 1 Control plane machine as this is an edge scenario and we want light wheight clusters. This is configured in the CAPI template.  
+4. Re-use that number for the CONTROL_PLANE_VIP
+5. Select a bare metal host to install this K8s cluster on (edge use case). It is possibe look at the bare metal hosts on the CLI. Ask lutz if you want to show this.
+6. All available K8s versions are known to work
+7. Use the Cluster Base and The cluster number add 200 to calulate the LOADBALANCER_IP
+8. Deploy at least 2 worker nodes.
 
 ![Screenshot from 2022-08-31 11-12-45](https://user-images.githubusercontent.com/2788194/187643487-48a35c5f-07d1-4573-80eb-841f102aa5a9.png)
 
