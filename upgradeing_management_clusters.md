@@ -1,4 +1,4 @@
-# work in progress
+# How to bump up the management EKS cluster one minor version
 
 see [cluster-update doc](https://eksctl.io/usage/cluster-upgrade/)
 
@@ -33,4 +33,10 @@ $ eksctl delete nodegroup wge-demo2-workers --cluster wge-demo2 --region eu-west
 $ eksctl utils update-kube-proxy --cluster=wge-demo2 --region eu-west-3 --approve
 ```
 * aws-node
+```
+$ eksctl utils update-aws-node --cluster=wge-demo2 --region eu-west-3 --approve
+```
 * core-dns
+```
+$ eksctl utils update-coredns --cluster=wge-demo2 --region eu-west-3 --approve
+```
