@@ -21,9 +21,16 @@ $ eksctl upgrade cluster --name wge-demo2 --region eu-west-3 --approve
 2. replace each of the nodegroups by creating a new one and deleting the old one
 ``` 
 $ eksctl create nodegroup --cluster wge-demo2 --name nodegroup121-b --region eu-west-3 --node-type t3.large --nodes 4 --nodes-min 2 --nodes-max 6
+...
+$ eksctl get nodegroups --cluster wge-demo2 --region eu-west-3
+...
+$ eksctl delete nodegroup wge-demo2-workers --cluster wge-demo2 --region eu-west-3
 ```
 
 3. update default add-ons
 * kube-proxy
+```
+$ eksctl utils update-kube-proxy --cluster=wge-demo2 --region eu-west-3 --approve
+```
 * aws-node
 * core-dns
