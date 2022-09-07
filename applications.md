@@ -4,6 +4,26 @@
 
 Application Demos currently require that you have a GitRepository object and the required secret before you can use the UI to add the kustomization.
 
+## Demo with Helm Chart and the app in the mangement repostiory
+
+Pro :
+- no need to deal with secrets when the app is in the management repo
+- no need to add a GitRepository as flux-system bootstrap has done this for us
+
+Con : 
+- no separate repo
+
+There is a podinfo helm chart in the management repo already. We can use that to deploy and application. 
+
+Here is how you can deploy that podinfo app with the UI : 
+
+Let's modify the helm release.
+
+This fails, but the flux falls back and we still have the app running.
+
+Modify back to a version that does exist. 
+
+
 ## Demo using the CLI to add the GitRepository and the Secret to the Leaf Cluster
 
 Pro : 
