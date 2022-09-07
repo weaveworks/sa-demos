@@ -13,12 +13,18 @@ Con :
 - the GitRepository is not in git
 - you need to use the flux command line
 - you need to have the leaf cluster kubeconfig on the cli
+- the secret is created from the cli in the cluster
+- there is no central secrets management
 
 **_NOTE:_** there is currently a bug for EKS clusters, that will give you a kubeconfig that is only valid for 10 min. You can work around it by downloading the kubeconfig on the cli with 'aws eks update-kubeconfig --region eu-central-1 --name myekscluster
 
 Download the Leaf cluster kubeconfig and make its context default
 ```
 $ export KUBECONFIG=$HOME/Downloads/my-kubeconfig
+```
+or try 
+```
+$ export KUBECONFIG=$HOME/Downloads/$(ls -rt ~/Downloads/ | tail -1)
 ```
 
 Make sure you are running a recent flux version
@@ -33,7 +39,7 @@ source-controller: v0.24.4
 
 Create a new GitRepository & secret for your Application Repository
 ```
-$ flux 
+$ flux create source git lutzlm6-podinfo --https://github.com/weavegitops/podinfo-deploy --branch=master --interval=1m 
 ```
 
 If you want to be able to add your application to any cluster. It is best to have it available as part of the base kustomization. All leaf clusters get the cluster base kustomization assinged per default. 
