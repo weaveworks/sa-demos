@@ -17,3 +17,18 @@ https://demo2.weavegitops.com
 - LM provisioning is working with the **lm-edge** template
 - broken Sources for leaf cluster listings
 
+## Accessing the Management Clusters
+
+You can find the IAM Credentials in 1P : 
+
+![Screenshot from 2022-09-07 09-43-27](https://user-images.githubusercontent.com/2788194/188821862-4ca062e0-bd38-4839-8186-257cf625215b.png)
+
+Put these in your environment. You can add the kubeconfig data for demo2 to your existing kubeconfig with this command :
+```
+$ aws eks --region eu-west-3 update-kubeconfig --name wge-demo2 
+```
+
+For demo3 use 
+```
+$ aws eks --region eu-west-1 update-kubeconfig --name wge-demo3
+```
