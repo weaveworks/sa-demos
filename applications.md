@@ -2,7 +2,39 @@
 
 # Application Demos
 
-Application Demos currently require that you add Git Repository objects before you can use the UI to add the kustomization
+Application Demos currently require that you have a GitRepository object and the required secret before you can use the UI to add the kustomization.
+
+## Demo using the CLI to add the GitRepository and the Secret to the Leaf Cluster
+
+Pro : 
+- nothing else required
+
+Con : 
+- the GitRepository is not in git
+- you need to use the flux command line
+- you need to have the leaf cluster kubeconfig on the cli
+
+**_NOTE:_** there is currently a bug for EKS clusters, that will give you a kubeconfig that is only valid for 10 min. You can work around it by downloading the kubeconfig on the cli with 'aws eks update-kubeconfig --region eu-central-1 --name myekscluster
+
+Download the Leaf cluster kubeconfig and make its context default
+```
+$ export KUBECONFIG=$HOME/Downloads/my-kubeconfig
+```
+
+Make sure you are running a recent flux version
+```
+$ flux version
+flux: v0.32.0
+helm-controller: v0.21.0
+kustomize-controller: v0.25.0
+notification-controller: v0.23.5
+source-controller: v0.24.4
+```
+
+Create a new GitRepository & secret for your Application Repository
+```
+$ flux 
+```
 
 If you want to be able to add your application to any cluster. It is best to have it available as part of the base kustomization. All leaf clusters get the cluster base kustomization assinged per default. 
 
