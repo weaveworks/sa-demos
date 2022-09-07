@@ -23,7 +23,11 @@ You can find the IAM Credentials in 1P :
 
 ![Screenshot from 2022-09-07 09-43-27](https://user-images.githubusercontent.com/2788194/188821862-4ca062e0-bd38-4839-8186-257cf625215b.png)
 
-Put these in your environment. You can add the kubeconfig data for demo2 to your existing kubeconfig with this command :
+Put these in your environment. 
+
+You can [download a kubeconfig](https://github.com/weaveworks/sa-demos/raw/main/kubeconfig/config) that has all 3 management clusters (demo[123]).
+
+You can add the kubeconfig data for demo2 to your existing kubeconfig with this command :
 ```
 $ aws eks --region eu-west-3 update-kubeconfig --name wge-demo2 
 ```
