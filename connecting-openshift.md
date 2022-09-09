@@ -124,9 +124,9 @@ $ git commit -m 'prime openshift'
 $ git push
 ```
 
-We create a GitOpsCluster object that will reference our kubeconfig secret
+We create a GitOpsCluster object that will reference our kubeconfig secret. This references the default bootstrap configuration, but will not fail, as we have perpared the OpenShift specific setting beforehand. ( Security Context Constraints, Service Account, Service Account Token, Kubeconfig and kustomization.yaml patch )
 ```
-$ cat << EOF > $HOME/git/demo2-repo/clusters/management/clusters/default/openshift-lutz-rosa.yaml
+$ cat << EOF > clusters/management/clusters/default/openshift-lutz-rosa.yaml
 apiVersion: gitops.weave.works/v1alpha1
 kind: GitopsCluster
 metadata:
@@ -138,4 +138,9 @@ metadata:
 spec:
   secretRef:
     name: openshift-lutz-rosa-kubeconfig
+EOF
+$ git add clusters/management/clusters/default/openshift-lutz-rosa.yaml
+$ git pull
+$ git commit -m 'add GitOpsCluster for OpenShift'
+$ git push
 ```
