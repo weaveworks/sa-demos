@@ -38,5 +38,38 @@ $ mkdir clusters/default/
 
 **_NOTE_** This is not a good solution as this kubeconfig holds a token that will timeout in 24h 
 
+**We might want to create a service account for weave gitops to access the OpenShift cluster**
+
+Create a new *weave-gitops* service account
+```
+$ oc create sa weave-gitops
+```
+
+Allow weave-gitops to do it's work (**not advised in production USE FINE GRAINED ACCESS CONTROL**)
+```
+$ oc policy add-role-to-user cluster-admin -z weave-gitops
+```
+
+This will give you the API Token for the Service Account
+```
+$ KUBE_API_TOKEN=$(oc sa get-token weave-gitops)
+```
+
+This guide helps to build a kubeconfig that uses the service account token
+
+```
+KUBE_API_EP='https://api.lutz-rosa.p1ug.p1.openshiftapps.com:6443'
+KUBE_CERT='REDACTED'
+CLUSTER=openshift-lutz-rosa
+
+echo $KUBE_CERT >deploy.crt
+kubectl config set-cluster $OPENSHIFT --server=$KUBE_API_EP \ 
+    --certificate-authority=deploy.crt  \
+    --embed-certs=true
+kubectl config set-credentials weave-gitops --token=$KUBE_API_TOKEN
+kubectl config set-context $CLUSTER --cluster $CLUSTer --user weave-gitops
+kubectl config use-context $CLUSTER
+```
+
 We need a secret that holds a kubeconfig to connect our OpenShift cluster to Weave Gitops. We are defining the secret on the command line and load it into 
 our management cluster manually. You could you a key management system for this as well. The above *oc login* has created a 
