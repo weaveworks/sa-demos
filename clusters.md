@@ -1,3 +1,5 @@
+Proven to work on v0.9.4-rc.2 and v0.8.3
+
 # How to demo cluster creation
 
 ## Prerequisites
