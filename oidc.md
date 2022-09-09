@@ -16,13 +16,20 @@ The json files for the following secrets are save in a 1P vault. "WGE SA Demos"
 Download the json files from the 1P vault and create these two secrets in ns dex-system.
 ```
 $ kubectl create ns dex-system
-$ kubectl create secret generic dex-google-sa --from-file=value=lutz-democenter-fdce2315e44f.json -n dex-system
-$ kubectl create secret generic dex-oauth-app-credentials --from-file=value=client_secret_716282251124-nsh1u1qtrodinkhaup290qak3vcbevk4.apps.googleusercontent.com.json -n dex-system
+$ kubectl create secret generic dex-google-sa \
+      --from-literal=adminEmail=lutz@weave.works \
+      --from-file=value=lutz-democenter-fdce2315e44f.json \
+      -n dex-system
+      
+$ kubectl create secret generic dex-oauth-app-credentials \
+      --from-literal=CLIENT_ID=716282251124-nsh1u1qtrodinkhaup290qak3vcbevk4.apps.googleusercontent.com\
+      --from-literal=CLIENT_SECRET=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\
+      -n dex-system
 ```
 
 We do need a 3rd secret between Dex and Weave Gitops. This can be a generic random secret for the exchange between the two.
 ```
-$ kubectl create secret generic dex-client-credentials --from-literal=value=mySecretIsNotSave135 -n dex-system
+$ kubectl create secret generic dex-client-credentials --from-literal=clientSecret=mySecretIsNotSave135 -n dex-system
 ```
 
 Now that the secrets are created, we can add the dex configuration. This is prepared in ~/git/demo2-repo/weave-gitops-platform/dex . We activate it by adding a kustomization to ~/git/demo2-repo/clusters/management/
