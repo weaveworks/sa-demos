@@ -37,5 +37,6 @@ $ mkdir clusters/default/
 ```
 
 **_NOTE_** This is not a good solution as this kubeconfig holds a token that will timeout in 24h 
+
 We need a secret that holds a kubeconfig to connect our OpenShift cluster to Weave Gitops. We are defining the secret on the command line and load it into 
 our management cluster manually. You could you a key management system for this as well. The above *oc login* has created a 
