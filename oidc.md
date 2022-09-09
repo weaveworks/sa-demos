@@ -54,5 +54,23 @@ EOF
 $ flux reconcile kustomization flux-system --with-source
 ```
 
+Now check that dex runs happily
+```
+$ k get pods -n dex-system
+NAME                        READY   STATUS    RESTARTS   AGE
+cm-acme-http-solver-8g2kw   1/1     Running   0          26m
+dex-79dcfbdfc8-4dk77        1/1     Running   0          72s
+```
 
-Warning  Failed     10s (x7 over 74s)  kubelet            Error: couldn't find key CLIENT_ID in Secret dex-system/dex-oauth-app-credentials
+Let's check the Ingress :
+```
+$ k get ingress -n dex-system
+NAME                        CLASS    HOSTS                       ADDRESS                                                                   PORTS     AGE
+cm-acme-http-solver-lwlmb   <none>   dex-demo2.weavegitops.com   a0f00ce38d0d44dce815d4ad71be9a34-1159077847.eu-west-3.elb.amazonaws.com   80        27m
+```
+
+We don't have external-dns yet, so we need to update Route53 manually.
+dex                         <none>   dex-demo2.weavegitops.com   a0f00ce38d0d44dce815d4ad71be9a34-1159077847.eu-west-3.elb.amazonaws.com   80, 443   27m
+
+
+
