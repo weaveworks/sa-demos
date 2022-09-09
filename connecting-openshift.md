@@ -73,3 +73,39 @@ kubectl config use-context $CLUSTER
 
 We need a secret that holds a kubeconfig to connect our OpenShift cluster to Weave Gitops. We are defining the secret on the command line and load it into 
 our management cluster manually. You could you a key management system for this as well. The above *oc login* has created a 
+
+Precreate the structure of the cluster directory
+```
+$ cd ~/git/demo2-repo
+$ git pull
+$ mkdir -p clusters/default/openshift-lutz-rosa/flux-system
+$ touch clusters/default/openshift-lutz-rosa/flux-system/{gotk-components,gotk-sync,kustomization}.yaml
+$ cat << EOF
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - gotk-components.yaml
+  - gotk-sync.yaml
+patches:
+  - patch: |
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: all
+      spec:
+        template:
+          spec:
+            containers:
+              - name: manager
+                securityContext:
+                  runAsUser: 65534
+                  seccompProfile:
+                    $patch: delete      
+    target:
+      kind: Deployment
+      labelSelector: app.kubernetes.io/part-of=flux
+EOF 
+$ git add clusters/default/openshift-lutz-rosa/
+$ git commit -m 'prime openshift'
+$ git push
+```
