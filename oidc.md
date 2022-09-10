@@ -30,8 +30,8 @@ $ kubectl create secret generic dex-oauth-app-credentials \
 We do need a 3rd secret between Dex and Weave Gitops. This can be a generic random secret for the exchange between the two.
 ```
 $ kubectl create secret generic dex-client-credentials \
-    --from-literal=clientID=dexuser \
-    --from-literal=clientSecret=mySecretIsNotSave135 \
+    --from-literal=client-id=dexuser \
+    --from-literal=client-secret=mySecretIsNotSave135 \
     -n dex-system
 ```
 
