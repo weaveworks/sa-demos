@@ -79,7 +79,7 @@ Check that dns and ssl is working by opening https://dex-demo2.weavegitop.com in
 
 Create the static client secret in flux-system for Weave Gitops to consume :
 ```
-$ kubectl create secret generic dex-client-credentials --from-literal=clientSecret=mySecretIsNotSave135 -n flux-system
+$ kubectl create secret generic dex-client-credentials --from-literal=clientID=mySecretIsNotSave135 -n flux-system
 ```
 
 
