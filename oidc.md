@@ -29,7 +29,10 @@ $ kubectl create secret generic dex-oauth-app-credentials \
 
 We do need a 3rd secret between Dex and Weave Gitops. This can be a generic random secret for the exchange between the two.
 ```
-$ kubectl create secret generic dex-client-credentials --from-literal=clientSecret=mySecretIsNotSave135 -n dex-system
+$ kubectl create secret generic dex-client-credentials \
+    --from-literal=clientID=dexuser \
+    --from-literal=clientSecret=mySecretIsNotSave135 \
+    -n dex-system
 ```
 
 Now that the secrets are created, we can add the dex configuration. This is prepared in ~/git/demo2-repo/weave-gitops-platform/dex . We activate it by adding a kustomization to ~/git/demo2-repo/clusters/management/
@@ -79,7 +82,10 @@ Check that dns and ssl is working by opening https://dex-demo2.weavegitop.com in
 
 Create the static client secret in flux-system for Weave Gitops to consume :
 ```
-$ kubectl create secret generic dex-client-credentials --from-literal=clientID=mySecretIsNotSave135 -n flux-system
+$ kubectl create secret generic dex-client-credentials \
+      --from-literal=clientID=dexuser \
+      --from-literal=clientSecret=mySecretIsNotSave135 \
+      -n flux-system
 ```
 
 
