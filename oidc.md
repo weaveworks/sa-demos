@@ -72,7 +72,9 @@ cm-acme-http-solver-lwlmb   <none>   dex-demo2.weavegitops.com   a0f00ce38d0d44d
 ```
 
 We don't have external-dns yet, so we need to update Route53 manually.
+```
 dex                         <none>   dex-demo2.weavegitops.com   a0f00ce38d0d44dce815d4ad71be9a34-1159077847.eu-west-3.elb.amazonaws.com   80, 443   27m
+```
 
 ![Screenshot from 2022-09-09 19-32-06](https://user-images.githubusercontent.com/2788194/189416540-31855887-2a69-436b-b280-b45674dd9f54.png)
 
@@ -86,5 +88,10 @@ $ kubectl create secret generic dex-client-credentials \
       --from-literal=clientSecret=mySecretIsNotSave135 \
       -n flux-system
 ```
+
+My guess is that lutz@weave.works need the right to impersonate ciaran-admin@weave.works. This does not work currently and I get this error on OIDC Login : 
+
+![Screenshot from 2022-09-10 08-04-35](https://user-images.githubusercontent.com/2788194/189531339-cd361697-5cde-4088-942c-6393340cb183.png)
+
 
 
