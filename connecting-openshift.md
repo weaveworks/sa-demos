@@ -6,7 +6,7 @@ OpenShift is a bit special. It is locked down with security contexts and also re
 If we want to deploy flux / connect an OpenShift cluster to Weave Gitops, [we have to prepare it](https://fluxcd.io/flux/use-cases/openshift/). This preparation could be turned into a special OpenShift
 Bootstrap config for automation.
 
-Lacking the sepcialized OpenShift Bootstrap automation, follow these steps.
+Lacking a sepcialized OpenShift bootstrap automation, follow these steps : 
 
 Save your ~/.kube/config out of the way before you start :
 ```
@@ -36,7 +36,7 @@ $ cd ~/git/demo2-repo
 $ mkdir clusters/default/
 ```
 
-**_NOTE_** Using a user token is not a good solution as this kubeconfig holds a token that will timeout in 24h 
+**_NOTE_** Using a user token based kubeconfig is not a good solution for long term automation and for adding OpenShift to WGE. The user token times out after 24h. 
 
 **We want to create a service account for weave gitops to access the OpenShift cluster**
 
@@ -48,11 +48,6 @@ $ oc create sa weave-gitops
 Allow weave-gitops to do it's work (**not advised in production USE FINE GRAINED ACCESS CONTROL**)
 ```
 $ oc policy add-role-to-user cluster-admin -z weave-gitops
-```
-
-Let's clean our current kubeconfig again
-```
-$ mv ~/.kube/config ~/.kube/ocpconfig
 ```
 
 This will give you the API Token for the Service Account
@@ -71,6 +66,11 @@ This guide helps to build a kubeconfig that uses the service account token
 $ KUBE_API_EP='https://api.lutz-rosa.p1ug.p1.openshiftapps.com:6443'
 $ CLUSTER=openshift-lutz-rosa
 
+Let's clean our current kubeconfig again
+```
+$ mv ~/.kube/config ~/.kube/ocpconfig
+```
+
 kubectl config set-cluster $OPENSHIFT --server=$KUBE_API_EP \ 
     --certificate-authority=$KUBE_CERT  \
     --embed-certs=true
@@ -80,12 +80,13 @@ kubectl config use-context $CLUSTER
 ```
 
 Let's test this kubeconfig
-
-
+```
+$ oc get pods -A
+```
 
 Now we create a secret that holds this kubeconfig. We need a secret that holds a kubeconfig to connect our OpenShift cluster to Weave Gitops. We are defining the secret on the command line and load it into our management cluster manually. You could you a key management system for this as well. 
 ```
-$ kubectl create secret generic demo-01-kubeconfig --from-file=value=$HOME/.kube/config
+$ kubectl create secret generic openshift-lutz-rosa-kubeconfig --from-file=value=$HOME/.kube/config
 ```
 
 Precreate the structure of the cluster directory
