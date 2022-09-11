@@ -72,9 +72,6 @@ cm-acme-http-solver-lwlmb   <none>   dex-demo2.weavegitops.com   a0f00ce38d0d44d
 ```
 
 We don't have external-dns yet, so we need to update Route53 manually.
-```
-dex                         <none>   dex-demo2.weavegitops.com   a0f00ce38d0d44dce815d4ad71be9a34-1159077847.eu-west-3.elb.amazonaws.com   80, 443   27m
-```
 
 ![Screenshot from 2022-09-09 19-32-06](https://user-images.githubusercontent.com/2788194/189416540-31855887-2a69-436b-b280-b45674dd9f54.png)
 
