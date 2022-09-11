@@ -145,3 +145,7 @@ $ git pull
 $ git commit -m 'add GitOpsCluster for OpenShift'
 $ git push
 ```
+
+# deleting a cluster that was connected this way
+- Delete the kubeconfig from the cluster `$ kubectl delete secret openshift-lutz-rosa-kubeconfig`
+- Unmerge the GitOpsCluster object `$ git rm clusters/management/clusters/default/openshift-lutz-rosa.yaml`
