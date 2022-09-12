@@ -67,18 +67,18 @@ $ KUBE_CERT=weave-gitops-platform/openshift-extras/lets-encrypt-r3.pem
 
 This guide helps to build a kubeconfig that uses the service account token
 
-```
+```bash
 $ KUBE_API_EP='https://api.lutz-rosa.p1ug.p1.openshiftapps.com:6443'
 $ CLUSTER=openshift-lutz-rosa
 ```
 
 Let's clean our current kubeconfig again
-```
+```bash
 $ mv ~/.kube/config ~/.kube/ocpconfig
 ```
 
 The next commands will create a new kubeconfig with the KUBE_ vars that we have defined earlier.
-```
+```bash
 kubectl config set-cluster "$CLUSTER" --server="$KUBE_API_EP" \
     --certificate-authority="$KUBE_CERT"  \
     --embed-certs=true
