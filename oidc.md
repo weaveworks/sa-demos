@@ -86,9 +86,9 @@ $ kubectl create secret generic dex-client-credentials \
       -n flux-system
 ```
 
-My guess is that lutz@weave.works need the right to impersonate ciaran-admin@weave.works. This does not work currently and I get this error on OIDC Login : 
+Enable the [Admin SDK Api](https://console.cloud.google.com/apis/api/admin.googleapis.com/)
 
-![Screenshot from 2022-09-10 08-04-35](https://user-images.githubusercontent.com/2788194/189531339-cd361697-5cde-4088-942c-6393340cb183.png)
+In Google Workspace Admin, add the Service Account´s client [Unique ID](https://console.cloud.google.com/iam-admin/serviceaccounts/details/116172021980214735487?project=lutz-democenter&supportedpurview=project) to the [Security → API controls → Domain-wide delegation](https://admin.google.com/ac/owl/domainwidedelegation) list.
 
-
-
+![Screenshot from 2022-09-12 09-59-32](https://user-images.githubusercontent.com/25228551/189614463-ce93feeb-73f0-44bc-82e7-7482625b6042.png)
+![Screenshot from 2022-09-12 10-00-36](https://user-images.githubusercontent.com/25228551/189614533-af4a203c-4550-4540-bf18-61c22a7426ab.png)
