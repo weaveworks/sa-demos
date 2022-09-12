@@ -17,7 +17,7 @@ Download the json files from the 1P vault and create these two secrets in ns dex
 ```
 $ kubectl create ns dex-system
 $ kubectl create secret generic dex-google-sa \
-      --from-literal=adminEmail=ciaran-admin@weave.works \
+      --from-literal=adminEmail=oidc-auth-user@weave.works \
       --from-file=corp-oidc.json=lutz-democenter-fdce2315e44f.json \
       -n dex-system
       
