@@ -129,7 +129,7 @@ patches:
                 securityContext:
                   runAsUser: 65534
                   seccompProfile:
-                    $patch: delete      
+                    \$patch: delete      
     target:
       kind: Deployment
       labelSelector: app.kubernetes.io/part-of=flux
