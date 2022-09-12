@@ -100,7 +100,7 @@ $ cp $HOME/.kube/oldconfig $HOME/.kube/config
 Now we create a secret that holds this kubeconfig. We need a secret that holds a kubeconfig to connect our OpenShift cluster to Weave Gitops. We are defining the secret on the command line and load it into our management cluster manually. You could you a key management system for this as well. 
 ```
 $ kubectl config use-context LutzAdm@wge-demo2.eu-west-3.eksctl.io
-$ kubectl create secret generic openshift-lutz-rosa-kubeconfig --from-file=value=$HOME/secret/ocp-weave-gitops-kubeconfig
+$ kubectl create secret generic openshift-lutz-rosa-kubeconfig --from-file=value=$HOME/secrets/ocp-weave-gitops-kubeconfig
 ```
 
 Precreate the structure of the cluster directory
