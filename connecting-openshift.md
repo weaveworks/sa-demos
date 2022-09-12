@@ -134,9 +134,8 @@ patches:
       kind: Deployment
       labelSelector: app.kubernetes.io/part-of=flux
 EOF 
-$ git add clusters/default/openshift-lutz-rosa/
-$ git commit -m 'prime openshift'
-$ git push
+git add clusters/default/openshift-lutz-rosa/ && git commit -m 'prime openshift' && git push \
+
 ```
 
 We create a GitOpsCluster object that will reference our kubeconfig secret. This references the default bootstrap configuration, but will not fail, as we have perpared the OpenShift specific setting beforehand. ( Security Context Constraints, Service Account, Service Account Token, Kubeconfig and kustomization.yaml patch )
@@ -155,40 +154,8 @@ spec:
     name: openshift-lutz-rosa-kubeconfig
 EOF
 git add clusters/management/clusters/default/openshift-lutz-rosa.yaml
-git pull && git commit -m 'add GitOpsCluster for OpenShift' && git push
-```
+git pull && git commit -m 'add GitOpsCluster for OpenShift' && git push \
 
-## Not working currently - to bootstrap job fails :
-```
-$ k logs run-gitops-openshift-lutz-rosa9lfbg-9dswp
-► connecting to github.com
-► cloning branch "main" from Git repository "https://github.com/weavegitops/demo2-repo.git"
-✔ cloned repository
-► generating component manifests
-✔ generated component manifests
-✔ component manifests are up to date
-► installing components in "flux-system" namespace
-✗ trouble configuring builtin PatchTransformer with config: `
-patch: "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: all\nspec:\n  template:\n
-  \   spec:\n      containers:\n        - name: manager\n          securityContext:\n
-  \           runAsUser: 65534\n            seccompProfile:\n              : delete
-  \     \n"
-target:
-  kind: Deployment
-  labelSelector: app.kubernetes.io/part-of=flux
-`: unable to parse SM or JSON patch from [apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: all
-spec:
-  template:
-    spec:
-      containers:
-        - name: manager
-          securityContext:
-            runAsUser: 65534
-            seccompProfile:
-              : delete]
 ```
 
 
