@@ -37,19 +37,24 @@ $ touch clusters/default/$CLUSTER/flux-system/{gotk-components,gotk-sync,kustomi
 
 **We want to create a service account for weave gitops to access the OpenShift cluster**
 
+Create the flux-system namespace 
+```
+$ oc create ns flux-system
+```
+
 Create a new *weave-gitops* service account
 ```
-$ oc create sa weave-gitops
+$ oc create sa weave-gitops -n flux-system
 ```
 
 Allow weave-gitops to do it's work (**not advised in production USE FINE GRAINED ACCESS CONTROL**)
 ```
-$ oc policy add-role-to-user cluster-admin -z weave-gitops
+$ oc policy add-role-to-user cluster-admin -z weave-gitops -n flux-system
 ```
 
 This will give you the API Token for the Service Account
 ```
-$ KUBE_API_TOKEN=$(oc sa new-token weave-gitops)
+$ KUBE_API_TOKEN=$(oc sa new-token weave-gitops -n flux-system)
 ```
 
 We will need the CA Cert for the OpenShift cluster to be able to verify the connection. My OpenShift has been signed using LetsEncrpyt R3. We can download the certificate as txt ( same fmt as crt ) from [Letsencrypt](https://letsencrypt.org/certificates/). 
