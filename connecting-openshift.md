@@ -109,7 +109,7 @@ $ cd ~/git/demo2-repo
 $ git pull
 $ mkdir -p clusters/default/openshift-lutz-rosa/flux-system
 $ touch clusters/default/openshift-lutz-rosa/flux-system/{gotk-components,gotk-sync,kustomization}.yaml
-$ cat << EOF > clusters/openshift-lutz-rosa/flux-system/kustomization.yaml
+$ cat << EOF > clusters/default/openshift-lutz-rosa/flux-system/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
