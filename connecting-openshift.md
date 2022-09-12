@@ -62,6 +62,7 @@ This guide helps to build a kubeconfig that uses the service account token
 ```
 $ KUBE_API_EP='https://api.lutz-rosa.p1ug.p1.openshiftapps.com:6443'
 $ CLUSTER=openshift-lutz-rosa
+```
 
 Let's clean our current kubeconfig again
 ```
