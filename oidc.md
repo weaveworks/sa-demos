@@ -109,3 +109,11 @@ We do have the following groups :
 - demo-limited-user@weave.works
 - demo-view-user@weave.works
 
+**Admins**
+Lutz, Darryl and Darren are currently group admins.
+
+## RBAC configuration
+There are two places for configuring RBAC currently. 
+- for the management cluster : ` ~/git/demo2-repo/weave-gitops-platform/weave-gitops/read-all-role.yaml`
+- for all leaf clusters : ` ~/git/demo2-repo/clusters/bases/rbac/ `
+
