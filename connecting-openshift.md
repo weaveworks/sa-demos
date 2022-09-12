@@ -154,7 +154,7 @@ spec:
     name: openshift-lutz-rosa-kubeconfig
 EOF
 git add clusters/management/clusters/default/openshift-lutz-rosa.yaml
-git pull && git commit -m 'add GitOpsCluster for OpenShift' && git push \
+git pull && git commit -m 'add GitOpsCluster for OpenShift' && git push
 
 ```
 
@@ -166,6 +166,6 @@ Delete the kubeconfig from the cluster, and remove the GitOpsCluster object
 kubectl delete secret openshift-lutz-rosa-kubeconfig
 git rm clusters/management/clusters/default/openshift-lutz-rosa.yaml
 git pull && git commit -m "deleting $CLUSTER" && git push
-flux reconcile kustomization flux-system --with-source \
+flux reconcile kustomization flux-system --with-source
 
 ```
