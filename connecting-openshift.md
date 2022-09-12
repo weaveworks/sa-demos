@@ -8,11 +8,6 @@ Bootstrap config for automation.
 
 Lacking a sepcialized OpenShift bootstrap automation, follow these steps : 
 
-Save your ~/.kube/config out of the way before you start :
-```
-$ mv ~/.kube/config ~/.kube/oldconfig
-```
-
 Log into your OpenShift on the cli
 ```
 $ oc login --token=... --server=https://api.lutz-rosa.p1ug.p1.openshiftapps.com:6443
@@ -32,8 +27,10 @@ oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:tf-controller
 
 We will need to prepare to flux-system directory in the management repo. Go to the checkout of the demoX-repo :
 ```
+$ CLUSTER=lutz-openshift-rosa
 $ cd ~/git/demo2-repo
-$ mkdir clusters/default/
+$ mkdir clusters/default/$CLUSTER
+$ touch clusters/default/$CLUSTER/flux-system/{gotk-components,gotk-sync,kustomization}.yaml
 ```
 
 **_NOTE_** Using a user token based kubeconfig is not a good solution for long term automation and for adding OpenShift to WGE. The user token times out after 24h. 
@@ -55,7 +52,7 @@ This will give you the API Token for the Service Account
 $ KUBE_API_TOKEN=$(oc sa get-token weave-gitops)
 ```
 
-We will need the CA Cert for the OpenShift cluster to be able to verify the connection. My OpenShift has been signed using LetsEncrpyt R3. We can download the certificate as txt ( same fmt as crt ) from [Letsencrpy](https://letsencrypt.org/certificates/). 
+We will need the CA Cert for the OpenShift cluster to be able to verify the connection. My OpenShift has been signed using LetsEncrpyt R3. We can download the certificate as txt ( same fmt as crt ) from [Letsencrypt](https://letsencrypt.org/certificates/). 
 ```
 $ KUBE_CERT=$HOME/git/demo2-repo/weave-gitops-platform/openshift-extras/lets-encrypt-r3.crt
 ```
