@@ -50,6 +50,7 @@ $ oc create sa weave-gitops -n flux-system
 Allow weave-gitops to do it's work (**not advised in production USE FINE GRAINED ACCESS CONTROL**)
 ```
 $ oc policy add-role-to-user cluster-admin -z weave-gitops -n flux-system
+$ oc create clusterrolebinding weave-gitops-binding --clusterrole=cluster-admin --serviceaccount=flux-system:weave-gitops
 ```
 
 This will give you the API Token for the Service Account
