@@ -54,7 +54,7 @@ $ KUBE_API_TOKEN=$(oc sa new-token weave-gitops)
 
 We will need the CA Cert for the OpenShift cluster to be able to verify the connection. My OpenShift has been signed using LetsEncrpyt R3. We can download the certificate as txt ( same fmt as crt ) from [Letsencrypt](https://letsencrypt.org/certificates/). 
 ```
-$ KUBE_CERT=$HOME/git/demo2-repo/weave-gitops-platform/openshift-extras/lets-encrypt-r3.crt
+$ KUBE_CERT=weave-gitops-platform/openshift-extras/lets-encrypt-r3.crt
 ```
 
 This guide helps to build a kubeconfig that uses the service account token
