@@ -155,9 +155,7 @@ spec:
     name: openshift-lutz-rosa-kubeconfig
 EOF
 $ git add clusters/management/clusters/default/openshift-lutz-rosa.yaml
-$ git pull
-$ git commit -m 'add GitOpsCluster for OpenShift'
-$ git push
+$ git pull && git commit -m 'add GitOpsCluster for OpenShift' && git push
 ```
 
 # deleting a cluster that was connected this way
