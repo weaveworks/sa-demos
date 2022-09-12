@@ -5,7 +5,7 @@ Proven to work on v0.9.4-rc.2 and v0.8.3
 ## Prerequisites
 
 1. Install and Connect to tailscale
-- Login to (tailscale.com)[https://www.tailscale.com] using your Weaveworks Login
+- Login to [tailscale.com](https://www.tailscale.com) using your Weaveworks Login
 - Download tailscale
 - Run tailscale with : 
 ``` 
