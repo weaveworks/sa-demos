@@ -134,9 +134,31 @@ patches:
       kind: Deployment
       labelSelector: app.kubernetes.io/part-of=flux
 EOF 
-git add clusters/default/openshift-lutz-rosa/ && git commit -m 'prime openshift' && git push \
+
 
 ```
+
+Connecting a cluster manually will not run put the bases kustomization into the cluster directory. We have to do this manually as well
+```
+cat << EOF > clusters/default/openshift-lutz-rosa/clusters-bases-kustomization.yaml
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  creationTimestamp: null
+  name: clusters-bases-kustomization
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: clusters/bases
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+EOF
+git add clusters/default/openshift-lutz-rosa/ && git commit -m 'prime openshift' && git push
+
+```
+
 
 We create a GitOpsCluster object that will reference our kubeconfig secret. This references the default bootstrap configuration, but will not fail, as we have perpared the OpenShift specific setting beforehand. ( Security Context Constraints, Service Account, Service Account Token, Kubeconfig and kustomization.yaml patch )
 ```
