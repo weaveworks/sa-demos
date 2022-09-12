@@ -28,7 +28,7 @@ oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:tf-controller
 ```
 
 We will need to prepare to flux-system directory in the management repo. Go to the checkout of the demoX-repo :
-```
+```bash
 $ CLUSTER=lutz-openshift-rosa
 $ cd ~/git/demo2-repo
 $ mkdir -p clusters/default/$CLUSTER/flux-system
@@ -56,7 +56,7 @@ $ oc create clusterrolebinding weave-gitops-binding --clusterrole=cluster-admin 
 ```
 
 This will give you the API Token for the Service Account
-```
+```bash
 $ KUBE_API_TOKEN=$(oc sa new-token weave-gitops -n flux-system)
 ```
 
