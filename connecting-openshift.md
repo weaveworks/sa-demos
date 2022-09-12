@@ -29,7 +29,7 @@ We will need to prepare to flux-system directory in the management repo. Go to t
 ```
 $ CLUSTER=lutz-openshift-rosa
 $ cd ~/git/demo2-repo
-$ mkdir clusters/default/$CLUSTER
+$ mkdir -p clusters/default/$CLUSTER/flux-system
 $ touch clusters/default/$CLUSTER/flux-system/{gotk-components,gotk-sync,kustomization}.yaml
 ```
 
