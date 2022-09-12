@@ -86,9 +86,18 @@ $ kubectl create secret generic dex-client-credentials \
       -n flux-system
 ```
 
-My guess is that lutz@weave.works need the right to impersonate ciaran-admin@weave.works. This does not work currently and I get this error on OIDC Login : 
+## Groups, User and Access
 
-![Screenshot from 2022-09-10 08-04-35](https://user-images.githubusercontent.com/2788194/189531339-cd361697-5cde-4088-942c-6393340cb183.png)
+We do have the following groups : 
 
+**Groups**
+- team-demo-admins@weave.works
+- team-demo-viewers@weave.work
+- team-demo-limited-users@weave.works
+
+
+**Users**
+- demo-limited-user@weave.works
+- demo-view-user@weave.works
 
 
