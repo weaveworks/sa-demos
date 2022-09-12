@@ -1,4 +1,4 @@
-# work in progress
+This procedure is tested and working for OCP 4.11 and WG 0.9.4-rc2
 
 # This is a guide on how to connect OpenShift Clusters to WGE Demo environments
 
