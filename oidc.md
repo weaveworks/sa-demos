@@ -17,7 +17,7 @@ Download the json files from the 1P vault and create these two secrets in ns dex
 ```
 $ kubectl create ns dex-system
 $ kubectl create secret generic dex-google-sa \
-      --from-literal=adminEmail=ciaran-admin@weave.works \
+      --from-literal=adminEmail=oidc-auth-user@weave.works \
       --from-file=corp-oidc.json=lutz-democenter-fdce2315e44f.json \
       -n dex-system
       
@@ -86,6 +86,15 @@ $ kubectl create secret generic dex-client-credentials \
       -n flux-system
 ```
 
+
+Enable the [Admin SDK Api](https://console.cloud.google.com/apis/api/admin.googleapis.com/)
+
+
+In Google Workspace Admin, add the Service Account´s client [Unique ID](https://console.cloud.google.com/iam-admin/serviceaccounts/details/116172021980214735487?project=lutz-democenter&supportedpurview=project) to the [Security → API controls → Domain-wide delegation](https://admin.google.com/ac/owl/domainwidedelegation) list.
+
+![Screenshot from 2022-09-12 09-59-32](https://user-images.githubusercontent.com/25228551/189614463-ce93feeb-73f0-44bc-82e7-7482625b6042.png)
+![Screenshot from 2022-09-12 10-00-36](https://user-images.githubusercontent.com/25228551/189614533-af4a203c-4550-4540-bf18-61c22a7426ab.png)
+
 ## Groups, User and Access
 
 We do have the following groups : 
@@ -99,5 +108,4 @@ We do have the following groups :
 **Users**
 - demo-limited-user@weave.works
 - demo-view-user@weave.works
-
 
