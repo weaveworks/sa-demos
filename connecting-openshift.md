@@ -82,7 +82,8 @@ kubectl config set-cluster "$CLUSTER" --server="$KUBE_API_EP" \
     --embed-certs=true
 kubectl config set-credentials weave-gitops --token=$KUBE_API_TOKEN
 kubectl config set-context $CLUSTER --cluster $CLUSTER --user weave-gitops
-kubectl config use-context $CLUSTER
+kubectl config use-context $CLUSTER \
+
 ```
 
 Let's test this kubeconfig
