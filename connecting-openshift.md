@@ -49,7 +49,7 @@ $ oc policy add-role-to-user cluster-admin -z weave-gitops
 
 This will give you the API Token for the Service Account
 ```
-$ KUBE_API_TOKEN=$(oc sa get-token weave-gitops)
+$ KUBE_API_TOKEN=$(oc sa new-token weave-gitops)
 ```
 
 We will need the CA Cert for the OpenShift cluster to be able to verify the connection. My OpenShift has been signed using LetsEncrpyt R3. We can download the certificate as txt ( same fmt as crt ) from [Letsencrypt](https://letsencrypt.org/certificates/). 
