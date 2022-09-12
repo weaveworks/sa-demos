@@ -1,4 +1,6 @@
 This procedure is tested and working for OCP 4.11 and WG 0.9.4-rc2
+There is a general documentation on how to connect clusters thruogh a service account on our [documentation](https://docs.gitops.weave.works/docs/cluster-management/managing-existing-clusters/)
+
 
 # This is a guide on how to connect OpenShift Clusters to WGE Demo environments
 
