@@ -71,7 +71,7 @@ $ mv ~/.kube/config ~/.kube/ocpconfig
 
 The next commands will create a new kubeconfig with the KUBE_ vars that we have defined earlier.
 ```
-kubectl config set-cluster $OPENSHIFT --server=$KUBE_API_EP \ 
+kubectl config set-cluster $CLUSTER --server=$KUBE_API_EP \ 
     --certificate-authority=$KUBE_CERT  \
     --embed-certs=true
 kubectl config set-credentials weave-gitops --token=$KUBE_API_TOKEN
