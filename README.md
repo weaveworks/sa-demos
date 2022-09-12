@@ -12,7 +12,7 @@ https://demo3.weavegitops.com
 
 ## Demo2 is moving fast and might be unstable / this is where we try new stuff
 https://demo2.weavegitops.com
-- running v0.9.4-rc.2
+- running v0.9.4
 - EKS is working use **aws-eks-dev** to create EKS clusters
 - LM provisioning is working with the **lm-edge** template
 - broken Sources for leaf cluster listings
