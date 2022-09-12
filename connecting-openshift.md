@@ -11,12 +11,12 @@ Bootstrap config for automation.
 Lacking a sepcialized OpenShift bootstrap automation, follow these steps : 
 
 Log into your OpenShift on the cli
-```
+```bash
 $ oc login --token=... --server=https://api.lutz-rosa.p1ug.p1.openshiftapps.com:6443
 ```
 
 Set the **nonroot** SCC for all controllers in the flux-system ns
-```
+```bash
 NS="flux-system"
 oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:kustomize-controller
 oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:helm-controller
