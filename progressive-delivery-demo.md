@@ -5,6 +5,7 @@
 - [ ] Create list of available hosts and reference below
 - [ ] Confirm RBAC required for leaf cluster inc. potential PD bug
 - [ ] Check OIDC setup
+- [ ] Compare with standalone PD demo and demo3 cluster setup
 
 # Overview
 
@@ -40,7 +41,9 @@ Verify that the following *required* components are installed and available:
 ## 3) As an application operator, I can onboard a new application
 1. app repository from Story 2 must contain sample application
 1. Login to WGE using OIDC
-1. Add new application to leaf cluster using app repository source from Story 2
+1. Add new kustomization via add app to leaf cluster using app repository source from Story 2
 
 ## 4) An an application operator, I can release a new version of an application via progressive delivery
-1. 
+1. Update deployment manifest in app repository from Story 2 to new version
+1. Sync app kustomization to reconcile change to cluster
+1. Navigate to Delivery UI to observe rollout
