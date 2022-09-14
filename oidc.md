@@ -14,7 +14,7 @@ The json files for the following secrets are save in a 1P vault. "WGE SA Demos"
 - dex-google-sa is the service account that allows access to Google objects.
 
 Download the json files from the 1P vault and create these two secrets in ns dex-system.
-```
+```console
 $ kubectl create ns dex-system
 $ kubectl create secret generic dex-google-sa \
       --from-literal=adminEmail=oidc-auth-user@weave.works \
