@@ -104,7 +104,7 @@ You can find the edit button available in the cluster listt, but only for the cl
 
 Changes that should work change : 
 - profiles installed, versions, values.yaml 
-- K8s worker nodes ( works for LM, can work for EKS but needs to be prepared in used template ) 
+- K8s worker nodes ( works for LM, EKS 1-8 nodes ) 
 
 Changes that should/might not work :
 - IP address changes
