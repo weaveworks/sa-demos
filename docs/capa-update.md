@@ -1,4 +1,4 @@
-## not finished
+## Official Route is blocked. Manual workaround implemented.
 
 # How to update the AWS capa-controller and AWS IAM stack 
 
@@ -103,6 +103,8 @@ $ eksctl create iamserviceaccount \
 ```
 
 I can't access the cluster any more. Neighter the STS nor the LutzAdm way will give me access.
+
+## Current state Sept-2022
 
 It turned out that our account weaveworks-cx does hold items that were deployed with old IAM roles. Deleting the CloudFormation stack is not enough to fix this situation. We would need to clear out all objects using old roles and then start from scratch. Richard fixed permissions manually for us. The custerawsadm tool can be used to output the permissions template for the IAM CloudFormation stack. This gives you the input that is needed to manually create the missing IAM permissions.
 
