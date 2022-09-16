@@ -1,5 +1,3 @@
-# work in progress
-
 # This documents describes the deployment of OIDC in our demo environments
 
 We need to use Dex to configure OICD Logins for Weave Gitops as Google does not provide group information directly but through a 2nd call. Dex implements getting 
@@ -97,7 +95,7 @@ In Google Workspace Admin, add the Service Account´s client [Unique ID](https:/
 
 ## Groups, User and Access
 
-We do have the following groups : 
+We do have the following groups now : 
 
 **Groups**
 - team-demo-admins@weave.works
@@ -119,3 +117,5 @@ There are two places for configuring RBAC currently.
 
 # TODO
 we still need a good rbac definition and tenancy demo
+
+1st step RBAC for admin right for all regular users.
