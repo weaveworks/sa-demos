@@ -1,4 +1,4 @@
-Proven to work on v0.9.4-rc.2 and v0.8.3
+Proven to work on v0.9.4 and v0.9.3
 
 # How to demo cluster creation
 
@@ -95,7 +95,25 @@ Go to the cluster list and click the **grafana** link. This opens the grafana pa
 * user : admin
 * pw : prom-operator
 
+## Cluster Updates - Edit cluster
+
+With v0.9.4 we get the capability of editing existing CAPI based clusters to change parameters. This requires that the Template file has the GitOpsCluster resource as the 1st object in the list of objects. The inital provisioning of your cluster will annotate the 1st yaml object of the template file with the values that were used. 
+
+You can find the edit button available in the cluster listt, but only for the clusters where the GitOpsCluster object has been annotated.
+![Screenshot from 2022-09-15 13-59-42](https://user-images.githubusercontent.com/2788194/190577634-5416428c-1b4a-40b5-b45c-6fa9d3f1ed5b.png)
+
+Changes that should work change : 
+- profiles installed, versions, values.yaml 
+- K8s worker nodes ( works for LM, can work for EKS but needs to be prepared in used template ) 
+
+Changes that should/might not work :
+- IP address changes
+- K8s version changes ( needs more involved procedures )
+
+
 ## Demo Policy deployment
+
+**_Note_** this was tested with weave-policy 0.4.0
 
 We just installed a cluster with the weave-poliy-agent 0.4.0. This version installs only the policy CRDs and no actual policy. This is why you can't find the new cluster in the policy page. You can deploy policy easily with the new add application flow. This essestially adds a kustomization only. The GitRepository or Source needs to exist in the cluster for you to use this flow. 
 
