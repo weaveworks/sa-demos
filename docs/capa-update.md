@@ -104,6 +104,10 @@ $ eksctl create iamserviceaccount \
 
 I can't access the cluster any more. Neighter the STS nor the LutzAdm way will give me access.
 
+It turned out that our account weaveworks-cx does hold items that were deployed with old IAM roles. Deleting the CloudFormation stack is not enough to fix this situation. We would need to clear out all objects using old roles and then start from scratch. Richard fixed permissions manually for us. The custerawsadm tool can be used to output the permissions template for the IAM CloudFormation stack. This gives you the input that is needed to manually create the missing IAM permissions.
+
+It is planned to restrict the weaveworks-cx AWS account to SAs only. Starting 1-Oct-2022. We can clear out all old resources. I'll talk to Richard to find out how to get back to the managed IAM permissions path after that.
+
 
 
 
