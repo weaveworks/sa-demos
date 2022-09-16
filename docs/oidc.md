@@ -1,4 +1,4 @@
-# This documents describes the deployment of OIDC in our demo environments
+# How to deploy OIDC for Weaveworks demo environments
 
 We need to use Dex to configure OICD Logins for Weave Gitops as Google does not provide group information directly but through a 2nd call. Dex implements getting 
 group information from OIDC as well.
