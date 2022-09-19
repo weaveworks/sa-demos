@@ -9,9 +9,10 @@ This repository is dealing with the Weave GitOps demos and demo environments. Pl
 
 ## Demo3 is currently the stable environment this is our fall back
 https://demo3.weavegitops.com
-- running 0.9.4 
+- running v0.9.4 
+-  EKS is working use **aws-eks-dev** to create EKS clusters
 - Liquid Metal is working use **lm-edge** to create clusters
-- EKS is working use **aws-eks-dev** to create EKS clusters
+
 
 ## Demo2 is moving fast and might be unstable / this is where we try new stuff
 https://demo2.weavegitops.com
