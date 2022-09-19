@@ -93,6 +93,25 @@ In Google Workspace Admin, add the Service Account´s client [Unique ID](https:/
 ![Screenshot from 2022-09-12 09-59-32](https://user-images.githubusercontent.com/25228551/189614463-ce93feeb-73f0-44bc-82e7-7482625b6042.png)
 ![Screenshot from 2022-09-12 10-00-36](https://user-images.githubusercontent.com/25228551/189614533-af4a203c-4550-4540-bf18-61c22a7426ab.png)
 
+Activate the OIDC in Weave-Gitops by adding the oidc block to the config section in ~/git/demo2-repo/weave-gitops-platform/weave-gitops.yaml
+```yaml
+...
+    config:
+      capi:
+        repositoryURL: https://github.com/weavegitops/demo2-repo
+      cluster-controller:
+        enabled: true
+      git:
+        type: github
+        hostname: "github.com"
+      oidc:
+        enabled: "true"
+        clientCredentialsSecret: dex-client-credentials
+        issuerURL: https://dex-demo2.weavegitops.com
+        redirectURL: https://demo2.weavegitops.com/oauth2/callback
+```
+
+
 ## Groups, User and Access
 
 We do have the following groups now : 
