@@ -1,21 +1,23 @@
 # sa-demos
 This repository is dealing with the Weave GitOps demos and demo environments. Please use it to file and update issues that you are seeing. You can find the official demo guides here.
 
+** _Noteable issues in v0.9.4_ **
+- regular helm repositories not working as Application Sources, we need Profile annotations
+- terraform deployments are not rolled back per default config when the resource is removed from git
+
 # Demo Status
 
 ## Demo3 is currently the stable environment this is our fall back
 https://demo3.weavegitops.com
-- running 0.9.3 
+- running 0.9.4 
 - Liquid Metal is working use **lm-edge** to create clusters
 - EKS is working use **aws-eks-dev** to create EKS clusters
-- Add Application flow is broken - don't try to put things in flux-system
 
 ## Demo2 is moving fast and might be unstable / this is where we try new stuff
 https://demo2.weavegitops.com
 - running v0.9.4
 - EKS is working use **aws-eks-dev** to create EKS clusters
 - LM provisioning is working with the **lm-edge** template
-- broken Sources for leaf cluster listings
 
 ## Accessing the Management Clusters
 
