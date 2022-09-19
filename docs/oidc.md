@@ -13,13 +13,13 @@ The json files for the following secrets are save in a 1P vault. "WGE SA Demos"
 
 Download the json files from the 1P vault and create these two secrets in ns dex-system.
 ```console
-$ kubectl create ns dex-system
-$ kubectl create secret generic dex-google-sa \
+kubectl create ns dex-system
+kubectl create secret generic dex-google-sa \
       --from-literal=adminEmail=oidc-auth-user@weave.works \
       --from-file=corp-oidc.json=lutz-democenter-fdce2315e44f.json \
       -n dex-system
       
-$ kubectl create secret generic dex-oauth-app-credentials \
+kubectl create secret generic dex-oauth-app-credentials \
       --from-literal=CLIENT_ID=716282251124-nsh1u1qtrodinkhaup290qak3vcbevk4.apps.googleusercontent.com\
       --from-literal=CLIENT_SECRET=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\
       -n dex-system
