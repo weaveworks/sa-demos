@@ -61,8 +61,14 @@ The process for a developer working on the app code is as follows:
 
 ## Developer Visibility
 
-There is feedback on the deployment of each change to the repo from the Kustomize object that syncs the objects to each environment.  These are shown as green ticks against each commit.
-However, this does not show the status of the Helm chart deployed, only the Kustomization.  This is useful for the `dev` environment, because that uses Kustomize to deploy the app.  It is much less useful for the rest of the environments that deploy a Helm chart as any error in the Helm chart deployment would not make the Kustomize fail.
+There is feedback on the deployment of each change to the repo from the Kustomize object that syncs the objects to each environment.  
+These are shown as green ticks against each commit, like this:
+
+![Screenshot from 2022-09-21 12-23-18](https://user-images.githubusercontent.com/1316183/191491787-bf9b4fda-47ea-4ea0-a4a8-837be13e9926.png)
+
+However, this does *not* show the status of the Helm chart deployed, only the Kustomization.  
+This is useful for the `dev` environment, because that uses Kustomize to deploy the app.  
+It is much less useful for the rest of the environments that deploy a Helm chart as any error in the Helm chart deployment would not make the Kustomize fail.
 
 TODO: Maybe it is possible to add a Health Check to the Kustomize that would only pass on successfult podinfo deployment that would improve visibility.
 
