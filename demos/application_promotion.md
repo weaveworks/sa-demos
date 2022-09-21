@@ -88,33 +88,47 @@ This is quickly enough that you can talk about each of the techniques used and t
         git pull
 ```
 2. Create a feature branch
+```
         git checkout -b my-feature
+```
 3. Make some changes to the container code, for example, change the message, colour or image URL
+```
         vi cmd/podinfo/main.go
+```
 4. Commit and push the code to the repo
+```
         git add cmd/podinfo/main.go
         git commit -m 'my change'
         git push
+```
 5. Now show the podinfo app from `dev` in the UI in one part of your screen while showing the code that changes in the repository from the github UI, i.e. `environments/dev/podinfo/deployment.yaml`
 6. Optional - To use the policy check modify the replicaCount to 1 as detailed below.
 6. Now as the developer, I want to release my new container with a new Helm chart:
     Increment the version of the container:
+```
         vi pkg/version/version.go 
+```
     Modify the Helm chart to deploy the new container version using the tag:
+```
         vi charts/podinfo/values.yaml
+```
     Increment the version of the Helm chart:
+```
         vi charts/podinfo/Chart.yaml
+```
     Now commit and push the changes:
+```
         git add *
         git commit -m 'release the container and helm chart'
         git push --set-upstream origin my-feature
+```
     Now go to the github UI and create a PR from the feature branch
 7. Show the process of CI testing running by showing the Github Actions:
-        https://github.com/weavegitops/application-promotion-podinfo/actions
+      -  https://github.com/weavegitops/application-promotion-podinfo/actions
 8. Once the process completes, merge the PR to release the Helm chart.
 9. While the chart releaser is running from Github Actions also show the podinfo app on the `dev-test` environment in another part of your screen.  
 10. When you see the podinfo app change, then show the PR that was created:
-        https://github.com/weavegitops/application-promotion-podinfo/pulls
+      -  https://github.com/weavegitops/application-promotion-podinfo/pulls
 11. Approve the PR to `uat` and then show the podinfo app on the `uat` environment in one part of your screen while showing the code changes from the PR in github.
 12. When the podinfo app updates, then show the PR for the `stg` environment.
 13. Approve the PR and show the `stg` environment podinfo app in one part of the screen while showing the feedback in commits from each environment and the actions that create the PRs.
@@ -129,11 +143,12 @@ To demonstrate the policy checks:
 1. Make a change the infringes the replicas policy, by changing the number of replicas to 1.
 2. This can be done by changing the values in the Helm chart.
 3. To modify the Helm chart values, change replicaCount to 1:
+```
         vi charts/podinfo/values.yaml
         git add charts/podinfo/values.yaml
         git commit -m 'reduce replicas to 1 for the Helm chart'
         git push
-
+```
 To run the policy check create a PR for the feature branch.
 The policy check will create a fix for the violation automatically, just approve the PR for the fix to then re-run the policy check so it succeeds.
 
