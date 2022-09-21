@@ -197,9 +197,6 @@ The github actions are all detailed in `.github/workflows/`
 You can see the output from github actions here:
 - https://github.com/weavegitops/application-promotion-podinfo/actions
 
-The deployment to each demo environment is depedent on a cluster being set up in advance that points a Kustomization to sync the manifests in the `environments/` directory for each cluster.  
-The kustomizations will be in the demo repos, i.e. demo2-repo and demo3-repo.
-
 The helm releases can be displayed here:  
 - https://github.com/weavegitops/application-promotion-podinfo/releases
 
