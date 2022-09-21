@@ -68,6 +68,10 @@ TODO: Maybe it is possible to add a Health Check to the Kustomize that would onl
 
 Each environment after `dev` will create a PR for the next environment on successful deployment of the Helm chart, so if no PR shows up, the Helm deployment failed.
 
+You can also see the version of the Helm chart deployed to each cluster using the WGE applications UI as shown here:
+
+
+
 ## Techniques used
 
 The `dev` environment uses Image Automation to watch the container registry for tags and will select the latest tag for deployment.  The Image Automation will then update the tag in the deployment.yaml and automatically merge the change to the repo.
@@ -83,24 +87,32 @@ This is quickly enough that you can talk about each of the techniques used and t
 ### Suggested demo flow
 
 1. Make sure the repo is up to date with the main branch:
+
 ```
         git checkout main
         git pull
 ```
+
 2. Create a feature branch
+
 ```
         git checkout -b my-feature
 ```
+
 3. Make some changes to the container code, for example, change the message, colour or image URL
+
 ```
         vi cmd/podinfo/main.go
 ```
+
 4. Commit and push the code to the repo
+
 ```
         git add cmd/podinfo/main.go
         git commit -m 'my change'
         git push
 ```
+
 5. Now show the podinfo app from `dev` in the UI in one part of your screen while showing the code that changes in the repository from the github UI, i.e. `environments/dev/podinfo/deployment.yaml`
 6. Optional - To use the policy check modify the replicaCount to 1 as detailed below.
 7. Now as the developer, I want to release my new container with a new Helm chart:
@@ -111,11 +123,13 @@ This is quickly enough that you can talk about each of the techniques used and t
 ```
 
 - Modify the Helm chart to deploy the new container version using the tag:  
+
 ```
             vi charts/podinfo/values.yaml
 ```
 
 - Increment the version of the Helm chart:  
+
 ```
             vi charts/podinfo/Chart.yaml
 ```
@@ -149,12 +163,14 @@ To demonstrate the policy checks:
 1. Make a change the infringes the replicas policy, by changing the number of replicas to 1.
 2. This can be done by changing the values in the Helm chart.
 3. To modify the Helm chart values, change replicaCount to 1:
+
 ```
         vi charts/podinfo/values.yaml
         git add charts/podinfo/values.yaml
         git commit -m 'reduce replicas to 1 for the Helm chart'
         git push
 ```
+
 To run the policy check create a PR for the feature branch.
 The policy check will create a fix for the violation automatically, just approve the PR for the fix to then re-run the policy check so it succeeds.
 
