@@ -8,10 +8,9 @@ There are 2 types of Sources and then there is possibly Secrets. As Secrets make
 
 ## GitRepository as Source
 
+A) management cluster as source**
 
-**management cluster as source**
-
-# Deploy an application with the Source in the managment cluster
+**Management cluster as Application Source**
 PRO: 
 - no secret needs to be added
 - full control over source
@@ -22,15 +21,23 @@ CON:
 PRO: 
 - no secrets need to be added
 - separate repo is more realistic
+- option to manipulate code easily
 CON: 
 - visible to all
 
-For an initial demonstration you [Podinfo App](https://github.com/weavegitops/podinfo-app) 
+We can create public repositories on the **weavegitops** org easily.
+
+For quick demo use [Podinfo App](https://github.com/weavegitops/podinfo-app) 
 
 We can define sources for public repos like this :
 ```bash
 cd ~/git/demo2-repo/
 flux create source git podinfo-app --url=https://github.com/weavegitops/podinfo-app.git --branch=main --interval=5m -n flux-system --export >> clusters/bases/sources/podinfo-app-gitrepo.yaml
+flux create source git podinfo-app --url=https://github.com/weavegitops/podinfo-app.git --branch=main --interval=5m -n flux-system --export >> weave-gitops-platform/capi-profiles/podinfo-app-gitrepo.yaml
+git add weave-gitops-platform/capi-profiles/podinfo-app-gitrepo.yaml clusters/bases/sources/podinfo-app-gitrepo.yaml
+git pull
+git commit -m podinfo-gitrepo-yaml
+git push
 ```
 
 We have added the GitRepository Object to the [management cluster](https://github.com/weavegitops/demo2-repo/blob/main/weave-gitops-platform/capi-profiles/podinfo-app-gitrepo.yaml) and to all [leaf clusters](https://github.com/weavegitops/demo2-repo/blob/main/clusters/bases/sources/podinfo-app-gitrepo.yaml)
