@@ -83,8 +83,10 @@ This is quickly enough that you can talk about each of the techniques used and t
 ### Suggested demo flow
 
 1. Make sure the repo is up to date with the main branch:
+```
         git checkout main
         git pull
+```
 2. Create a feature branch
         git checkout -b my-feature
 3. Make some changes to the container code, for example, change the message, colour or image URL
