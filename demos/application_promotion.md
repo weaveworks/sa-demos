@@ -62,7 +62,7 @@ The process for a developer working on the app code is as follows:
 ## Developer Visibility
 
 There is feedback on the deployment of each change to the repo from the Kustomize object that syncs the objects to each environment.  These are shown as green ticks against each commit.
-However, this does not show the status of the Helm chart deployed, only the Kustomization.  This is useful for the 'dev' environment, because that uses Kustomize to deploy the app.  It is much less useful for the rest of the environments that deploy a Helm chart as any error in the Helm chart deployment would not make the Kustomize fail.
+However, this does not show the status of the Helm chart deployed, only the Kustomization.  This is useful for the `dev` environment, because that uses Kustomize to deploy the app.  It is much less useful for the rest of the environments that deploy a Helm chart as any error in the Helm chart deployment would not make the Kustomize fail.
 
 TODO: Maybe it is possible to add a Health Check to the Kustomize that would only pass on successfult podinfo deployment that would improve visibility.
 
@@ -110,7 +110,7 @@ This is quickly enough that you can talk about each of the techniques used and t
 7. Show the process of CI testing running by showing the Github Actions:
         https://github.com/weavegitops/application-promotion-podinfo/actions
 8. Once the process completes, merge the PR to release the Helm chart.
-9. While the chart releaser is running from Github Actions also show the podinfo app on the 'dev-test' environment in another part of your screen.  
+9. While the chart releaser is running from Github Actions also show the podinfo app on the `dev-test` environment in another part of your screen.  
 10. When you see the podinfo app change, then show the PR that was created:
         https://github.com/weavegitops/application-promotion-podinfo/pulls
 11. Approve the PR to `uat` and then show the podinfo app on the `uat` environment in one part of your screen while showing the code changes from the PR in github.
