@@ -192,11 +192,25 @@ to the default and promote the changes across all the environments to reset the 
 
 ## Troubleshooting
 
-The github actions are all detailed in `.github/workflows/`
-Look there for any code that may need updating for the github actions if there is a problem.
+The github actions are all detailed in `.github/workflows/`  
+
+You can see the output from github actions here:
+- https://github.com/weavegitops/application-promotion-podinfo/actions
+
+The deployment to each demo environment is depedent on a cluster being set up in advance that points a Kustomization to sync the manifests in the `environments/` directory for each cluster.  
+The kustomizations will be in the demo repos, i.e. demo2-repo and demo3-repo.
+
+The helm releases can be displayed here:  
+- https://github.com/weavegitops/application-promotion-podinfo/releases
+
+The container registry can be displayed here:
+- https://github.com/weavegitops/application-promotion-podinfo/pkgs/container/application-promotion-podinfo
 
 The deployment to each demo environment is depedent on a cluster being set up in advance that points a Kustomization to sync the manifests in the `environments/` directory for each cluster.
-The kustomizations will be in the demo repos, i.e. demo2-repo and demo3-repo.
+The kustomizations will be in the demo repos, i.e.  
+- https://github.com/weavegitops/demo2-repo  
+- https://github.com/weavegitops/demo3-repo  
+
 
 ## Demo recording
 
