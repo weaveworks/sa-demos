@@ -108,20 +108,24 @@ This is quickly enough that you can talk about each of the techniques used and t
 ```
         vi pkg/version/version.go 
 ```
+
     - Modify the Helm chart to deploy the new container version using the tag:
 ```
         vi charts/podinfo/values.yaml
 ```
+
     - Increment the version of the Helm chart:
 ```
         vi charts/podinfo/Chart.yaml
 ```
+
     - Now commit and push the changes:
 ```
         git add *
         git commit -m 'release the container and helm chart'
         git push --set-upstream origin my-feature
 ```
+
     - Now go to the github UI and create a PR from the feature branch
 7. Show the process of CI testing running by showing the Github Actions:
       -  https://github.com/weavegitops/application-promotion-podinfo/actions
