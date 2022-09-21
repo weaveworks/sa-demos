@@ -12,10 +12,10 @@
 
 There are 5 environments for this demo.  These are leaf clusters that represent each environment.
 
-- 'dev' and 'dev-test', for the developers use,
-- 'uat' or user acceptance testing, used by the testers,
-- 'stg' or staging, final checks prior to deployment to production,
-- 'prod' or production.
+- `dev` and `dev-test`, for the developers use,
+- `uat` or user acceptance testing, used by the testers,
+- `stg` or staging, final checks prior to deployment to production,
+- `prod` or production.
 
 ## Application
 
@@ -25,39 +25,39 @@ This repo has a copy of podinfo that is customised for this demo.
 Versions are part of the demo and so are incremented independently of the source.
 
 The podinfo app source is here:  
-- cmd - source for the container code
-- pkg - the metadata for the container build 
+- `cmd` - source for the container code
+- `pkg` - the metadata for the container build 
 
 The Helm chart source is here:
-- charts/podinfo - Helm chart to release the podinfo application to environments
+- `charts/podinfo` - Helm chart to release the podinfo application to environments
 
 ## Deployments
 
 The deployment manifests are in the environments directory:
-- environments/dev - the kubernetes manifests for the dev environment
-- environments/dev-test - the Helmrelease to deploy the latest version
-- environments/uat - the Helmrelease to deploy a fixed version
-- environments/stg - the Helmrelease to deploy a fixed version
-- environments/prod - the Helmrelease to deploy a fixed version
+- `environments/dev` - the kubernetes manifests for the dev environment
+- `environments/dev-test` - the Helmrelease to deploy the latest version
+- `environments/uat` - the Helmrelease to deploy a fixed version
+- `environments/stg` - the Helmrelease to deploy a fixed version
+- `environments/prod` - the Helmrelease to deploy a fixed version
 
 ## Developer Experience
 
 The process for a developer working on the app code is as follows:
 1. Developer makes some changes to the app code in the cmd directory
 2. Developer pushes the changes to a feature branch, this runs a build of the container with a temporary tag, based on the commit SHA and a timestamp.
-3. The 'dev' environment deploys the new container image, so the developer can see the new changes.
-4.  The developer continues to iterate the code and each push deploys a new image to 'dev'
-5.  When the developer is ready to relase the changes, he needs to set the new version number of the container and update the Helm chart
+3. The `dev` environment deploys the new container image, so the developer can see the new changes.
+4.  The developer continues to iterate the code and each push deploys a new image to `dev`
+5.  When the developer is ready to release the changes, he needs to set the new version number of the container and update the Helm chart
 6. The developer then creates a PR from the feature branch, this starts the CI testing
 7. The CI tests will check the versions have been incremented, validate against the policies, build the new container, validate the Helm chart and deploy a test of the Helm chart.
 8. If the tests do not pass, the developer can increment changes on the PR until all the tests pass.
 9. When all the tests pass, the PR can be merged.  This will release the new version of the Helm chart.
-10. The 'dev-test' environment will then be updated with the new Helm chart and the new container.
-11.  If the Helm chart deploys correctly to the 'dev-test' environment and is healthy a PR is automatically created to update the fixed version number for the 'uat' environment.
-12.  This is then merged, which deploys the new Helm chart and container to the 'uat' environment.
-13. If the 'uat' deployment is healthy, then a PR is created for the 'stg' environment.
-14. This is merged and the Helm chart is deployed to 'stg' and a PR created for 'prod'.
-15. Finally the PR is merged to deploy the Helm chart to 'prod'
+10. The `dev-test` environment will then be updated with the new Helm chart and the new container.
+11.  If the Helm chart deploys correctly to the `dev-test` environment and is healthy a PR is automatically created to update the fixed version number for the `uat` environment.
+12.  This is then merged, which deploys the new Helm chart and container to the `uat` environment.
+13. If the `uat` deployment is healthy, then a PR is created for the `stg` environment.
+14. This is merged and the Helm chart is deployed to `stg` and a PR created for `prod`.
+15. Finally the PR is merged to deploy the Helm chart to `prod`.
 
 ## Developer Visibility
 
@@ -66,13 +66,13 @@ However, this does not show the status of the Helm chart deployed, only the Kust
 
 TODO: Maybe it is possible to add a Health Check to the Kustomize that would only pass on successfult podinfo deployment that would improve visibility.
 
-Each environment after 'dev' will create a PR for the next environment on successful deployment of the Helm chart, so if no PR shows up, the Helm deployment failed.
+Each environment after `dev` will create a PR for the next environment on successful deployment of the Helm chart, so if no PR shows up, the Helm deployment failed.
 
 ## Techniques used
 
-The 'dev' environment uses Image Automation to watch the container registry for tags and will select the latest tag for deployment.  The Image Automation will then update the tag in the deployment.yaml and automatically merge the change to the repo.
+The `dev` environment uses Image Automation to watch the container registry for tags and will select the latest tag for deployment.  The Image Automation will then update the tag in the deployment.yaml and automatically merge the change to the repo.
 
-The 'dev-test', 'uat', 'stg' and 'prod' environments all use the Helm release and an Alert sent to the github repo to trigger the PR for the next environment.  They also use an Alert to notify the github repo when the kustomize successfully syncs from each commit.
+The `dev-test`, `uat`, `stg` and `prod` environments all use the Helm release and an Alert sent to the github repo to trigger the PR for the next environment.  They also use an Alert to notify the github repo when the kustomize successfully syncs from each commit.
 
 ## Demo Flow
 
@@ -93,7 +93,7 @@ This is quickly enough that you can talk about each of the techniques used and t
         git add cmd/podinfo/main.go
         git commit -m 'my change'
         git push
-5. Now show the podinfo app from 'dev' in the UI in one part of your screen while showing the code that changes in the repository from the github UI, i.e. environments/dev/podinfo/deployment.yaml
+5. Now show the podinfo app from `dev` in the UI in one part of your screen while showing the code that changes in the repository from the github UI, i.e. `environments/dev/podinfo/deployment.yaml`
 6. Optional - To use the policy check modify the replicaCount to 1 as detailed below.
 6. Now as the developer, I want to release my new container with a new Helm chart:
     Increment the version of the container:
@@ -113,12 +113,12 @@ This is quickly enough that you can talk about each of the techniques used and t
 9. While the chart releaser is running from Github Actions also show the podinfo app on the 'dev-test' environment in another part of your screen.  
 10. When you see the podinfo app change, then show the PR that was created:
         https://github.com/weavegitops/application-promotion-podinfo/pulls
-11. Approve the PR to 'uat' and then show the podinfo app on the 'uat' environment in one part of your screen while showing the code changes from the PR in github.
-12. When the podinfo app updates, then show the PR for the 'stg' environment.
-13. Approve the PR and show the 'stg' environment podinfo app in one part of the screen while showing the feedback in commits from each environment and the actions that create the PRs.
-14. Once the podinfo app updates in 'stg', show the PR for 'prod'.
-15. Approve the PR for 'prod' and show the 'prod' environment podinfo app in part of the screen while showing the values that can be set in the Helmrelease object in environments/prod/podinfo-helmrelease.yaml that override the default values.yaml in the Helm chart.
-16. Once the podinfo updates in 'prod' the demo is completed.
+11. Approve the PR to `uat` and then show the podinfo app on the `uat` environment in one part of your screen while showing the code changes from the PR in github.
+12. When the podinfo app updates, then show the PR for the `stg` environment.
+13. Approve the PR and show the `stg` environment podinfo app in one part of the screen while showing the feedback in commits from each environment and the actions that create the PRs.
+14. Once the podinfo app updates in `stg`, show the PR for `prod`.
+15. Approve the PR for `prod` and show the `prod` environment podinfo app in part of the screen while showing the values that can be set in the Helmrelease object in `environments/prod/podinfo-helmrelease.yaml` that override the default values.yaml in the Helm chart.
+16. Once the podinfo updates in `prod` the demo is completed.
 
 ## Policy Checks
 
@@ -147,10 +147,10 @@ to the default and promote the changes across all the environments to reset the 
 
 ## Troubleshooting
 
-The github actions are all detailed in .github/workflows/
+The github actions are all detailed in `.github/workflows/`
 Look there for any code that may need updating for the github actions if there is a problem.
 
-The deployment to each demo environment is depedent on a cluster being set up in advance that points a Kustomization to sync the manifests in the environments/ directory for each cluster.
+The deployment to each demo environment is depedent on a cluster being set up in advance that points a Kustomization to sync the manifests in the `environments/` directory for each cluster.
 The kustomizations will be in the demo repos, i.e. demo2-repo and demo3-repo.
 
 ## Demo recording
