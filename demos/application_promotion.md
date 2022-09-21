@@ -104,7 +104,7 @@ This is quickly enough that you can talk about each of the techniques used and t
 5. Now show the podinfo app from `dev` in the UI in one part of your screen while showing the code that changes in the repository from the github UI, i.e. `environments/dev/podinfo/deployment.yaml`
 6. Optional - To use the policy check modify the replicaCount to 1 as detailed below.
 7. Now as the developer, I want to release my new container with a new Helm chart:
-    - Increment the version of the container:
+    - Increment the version of the container:  
             vi pkg/version/version.go
 
     - Modify the Helm chart to deploy the new container version using the tag:
