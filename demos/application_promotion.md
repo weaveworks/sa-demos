@@ -17,6 +17,10 @@ There are 5 environments for this demo.  These are leaf clusters that represent 
 - `stg` or staging, final checks prior to deployment to production,
 - `prod` or production.
 
+You can find links to the environments in each demo environment in the readme for the repo here:  
+- https://github.com/weavegitops/application-promotion-podinfo/blob/main/README.md
+
+
 ## Application
 
 The application is a copy of the podinfo application.  
