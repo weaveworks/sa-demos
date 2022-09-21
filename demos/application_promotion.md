@@ -104,23 +104,23 @@ This is quickly enough that you can talk about each of the techniques used and t
 5. Now show the podinfo app from `dev` in the UI in one part of your screen while showing the code that changes in the repository from the github UI, i.e. `environments/dev/podinfo/deployment.yaml`
 6. Optional - To use the policy check modify the replicaCount to 1 as detailed below.
 7. Now as the developer, I want to release my new container with a new Helm chart:
-    - Increment the version of the container:  
+- Increment the version of the container:  
 
 ```
             vi pkg/version/version.go
 ```
 
-    - Modify the Helm chart to deploy the new container version using the tag:  
+- Modify the Helm chart to deploy the new container version using the tag:  
 ```
             vi charts/podinfo/values.yaml
 ```
 
-    - Increment the version of the Helm chart:  
+- Increment the version of the Helm chart:  
 ```
             vi charts/podinfo/Chart.yaml
 ```
 
-    - Now commit and push the changes:  
+- Now commit and push the changes:  
 
 ```
             git add *
@@ -128,7 +128,7 @@ This is quickly enough that you can talk about each of the techniques used and t
             git push --set-upstream origin my-feature
 ```
 
-    - Now go to the github UI and create a PR from the feature branch
+- Now go to the github UI and create a PR from the feature branch
 7. Show the process of CI testing running by showing the Github Actions:
       -  https://github.com/weavegitops/application-promotion-podinfo/actions
 8. Once the process completes, merge the PR to release the Helm chart.
