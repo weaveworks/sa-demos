@@ -3,20 +3,20 @@ GitRepository or HelmRepository Objects need to be added to the management and t
 There is 2 locations for this :
 
 Management Cluster (we might want to change this location / rename it) :
-```
+```bash
 $ ls ~/git/demo2-repo/weave-gitops-platform/capi-profiles
 app-charts.yaml  isolavent-charts.yaml  podinfo-app-gitrepo.yaml  profile-repo.yaml
 ```
 
 Base Directory for all leaf clusters
-```
+```bash
 $ ls ~/git/demo2-repo/clusters/bases/sources/
 app-charts.yaml  isolavent-charts.yaml  podinfo-app-gitrepo.yaml
 ```
 
 Make sure to include the profile annotation if you add a regular helm repository that has charts without the profile labels. 
 Otherwise you will not see charts in the UI :
-```
+```bash
 $ cat ~/git/demo2-repo/clusters/bases/sources/isolavent-charts.yaml 
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
