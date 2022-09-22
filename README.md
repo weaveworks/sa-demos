@@ -1,7 +1,7 @@
 # sa-demos
 This repository is dealing with the Weave GitOps demos and demo environments. Please use it to file and update issues that you are seeing. You can find the official demo guides here.
 
-** _Noteable issues in v0.9.4_ **
+**_Noteable issues in v0.9.4_**
 - regular helm repositories not working as Application Sources, we need Profile annotations
 - terraform deployments are not rolled back per default config when the resource is removed from git
 
