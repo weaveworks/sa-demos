@@ -15,6 +15,8 @@ https://demo2.weavegitops.com
 - running v0.9.5
 - EKS is working use **aws-eks-dev** to create EKS clusters
 - LM provisioning is working with the **lm-edge** template
+- Pipelines feature flag: On
+- TerraformUI freature flag: On
 
 ## Accessing the Management Clusters
 
