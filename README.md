@@ -1,21 +1,22 @@
 # sa-demos
-This repository is dealing with the Weave GitOps demos and demo environments. Please use it to file and update issues that you are seeing. You can also put your demo guides and demo scripts here.
+This repository is dealing with the Weave GitOps demos and demo environments. Please use it to file and update issues that you are seeing. You can find the official demo guides here.
 
 # Demo Status
 
 ## Demo3 is currently the stable environment this is our fall back
 https://demo3.weavegitops.com
-- running 0.9.3 
+- running v0.9.4 
+-  EKS is working use **aws-eks-dev** to create EKS clusters
 - Liquid Metal is working use **lm-edge** to create clusters
-- EKS is working use **aws-eks-dev** to create EKS clusters
-- Add Application flow is broken - don't try to put things in flux-system
+
 
 ## Demo2 is moving fast and might be unstable / this is where we try new stuff
 https://demo2.weavegitops.com
-- running v0.9.4
+- running v0.9.5
 - EKS is working use **aws-eks-dev** to create EKS clusters
 - LM provisioning is working with the **lm-edge** template
-- broken Sources for leaf cluster listings
+- Pipelines feature flag: On
+- TerraformUI feature flag: On
 
 ## Accessing the Management Clusters
 
@@ -36,3 +37,15 @@ For demo3 use
 ```
 $ aws eks --region eu-west-1 update-kubeconfig --name wge-demo3
 ```
+
+## Demo Instructions
+
+Read the demo instructions fully and run a practice before presenting to a customer.
+
+- [Cluster Deployment with CAPI in WGE](https://github.com/weaveworks/sa-demos/blob/main/demos/cluster_capi.md)
+- [Deploy Applications in WGE](https://github.com/weaveworks/sa-demos/blob/main/demos/applications.md)
+- [Application Promotion and Policy Checks using Flux and WGE](https://github.com/weaveworks/sa-demos/blob/main/demos/application_promotion.md)
+- [Policy and Trusted Delivery](https://github.com/weaveworks/sa-demos/blob/main/demos/policy-trusted_delivery.md)
+- [Progressive Delivery with WGE](https://github.com/weaveworks/sa-demos/blob/main/demos/progressive-delivery-demo.md)
+
+Please also keep these instructions up to date for SAs to reference easily.

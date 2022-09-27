@@ -2,6 +2,59 @@
 
 # Application Demos
 
+Adding an Application to a Leaf Cluster.
+
+There are 2 types of Sources and then there is possibly Secrets. As Secrets make things more complicated, we stick to public Sources or Sources we do have the key for on the leaf and on the management cluster already.
+
+## GitRepository as Source
+
+A) management cluster as source**
+
+**Management cluster as Application Source**
+PRO: 
+- no secret needs to be added
+- full control over source
+CON: 
+- not realistic as app sources are usually outside of the management repository
+
+**public repository as source**
+PRO: 
+- no secrets need to be added
+- separate repo is more realistic
+- option to manipulate code easily
+CON: 
+- visible to all
+
+We can create public repositories on the **weavegitops** org easily.
+
+For quick demo use [Podinfo App](https://github.com/weavegitops/podinfo-app) 
+
+We can define sources for public repos like this :
+```bash
+cd ~/git/demo2-repo/
+flux create source git podinfo-app --url=https://github.com/weavegitops/podinfo-app.git --branch=main --interval=5m -n flux-system --export >> clusters/bases/sources/podinfo-app-gitrepo.yaml
+flux create source git podinfo-app --url=https://github.com/weavegitops/podinfo-app.git --branch=main --interval=5m -n flux-system --export >> weave-gitops-platform/capi-profiles/podinfo-app-gitrepo.yaml
+git add weave-gitops-platform/capi-profiles/podinfo-app-gitrepo.yaml clusters/bases/sources/podinfo-app-gitrepo.yaml
+git pull
+git commit -m podinfo-gitrepo-yaml
+git push
+```
+
+We have added the GitRepository Object to the [management cluster](https://github.com/weavegitops/demo2-repo/blob/main/weave-gitops-platform/capi-profiles/podinfo-app-gitrepo.yaml) and to all [leaf clusters](https://github.com/weavegitops/demo2-repo/blob/main/clusters/bases/sources/podinfo-app-gitrepo.yaml)
+
+This makes it available in the Add Application UI.
+
+
+**private repository as source**
+
+
+## Helm Repository as Source
+
+We have the **app-charts** public repository for helm.
+
+-------
+
+
 Application Demos currently require that you have a GitRepository object and the required secret before you can use the UI to add the kustomization.
 
 ## Demo with Helm Chart and the app in the mangement repostiory
