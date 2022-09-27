@@ -37,3 +37,15 @@ For demo3 use
 ```
 $ aws eks --region eu-west-1 update-kubeconfig --name wge-demo3
 ```
+
+## Demo Instructions
+
+Read the demo instructions fully and run a practice before presenting to a customer.
+
+[Cluster Deployment with CAPI in WGE](https://github.com/weaveworks/sa-demos/blob/main/demos/cluster_capi.md)
+[Deploy Applications in WGE](https://github.com/weaveworks/sa-demos/blob/main/demos/applications.md)
+[Application Promotion and Policy Checks using Flux and WGE](https://github.com/weaveworks/sa-demos/blob/main/demos/application_promotion.md)
+[Policy and Trusted Delivery](https://github.com/weaveworks/sa-demos/blob/main/demos/policy-trusted_delivery.md)
+[Progressive Delivery with WGE](https://github.com/weaveworks/sa-demos/blob/main/demos/progressive-delivery-demo.md)
+
+Please also keep these instructions up to date for SAs to reference easily.
