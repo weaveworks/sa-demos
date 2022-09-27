@@ -88,6 +88,7 @@ Each environment after `dev` will create a PR for the next environment on succes
 
 You can see the version of the Helm chart *requested* in the code by looking at the pipelines UI as shown here:
 
+![Screenshot from 2022-09-27 10-20-16](https://user-images.githubusercontent.com/1316183/192487661-bc08fb69-1931-4c1f-a68c-7334c6bb97f6.png)
 
 You can also see the version of the Helm chart *deployed* to each cluster using the WGE applications UI as shown here:
 
