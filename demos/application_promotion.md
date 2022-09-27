@@ -4,9 +4,9 @@
 
 1. Demostrate GitOps and policy checking across a multi-stage build pipeline.
 2. Show a development environment with "instant" image deployment.
-3. Show a promotion pipeline to the production environment that requires a pull request to deploy a new image.
+3. Show a promotion pipeline across environments ending with the production environment that requires a pull request to deploy a new image.
 4. Show one design pattern for GitOps application promotion: monorepo, instant developer deployment, pull request gate.
-5. Use weave-policy-validator to check PRs for policy compliance.
+5. Use weave-policy-validator to check PRs for policy compliance, prior to release of the helm chart.
 
 ## Environments
 
@@ -44,6 +44,14 @@ The deployment manifests are in the environments directory:
 - `environments/stg` - the Helmrelease to deploy a fixed version
 - `environments/prod` - the Helmrelease to deploy a fixed version
 
+## Presentation Slides
+
+The presentation slides for this demo are available in gdrive here:
+- https://docs.google.com/presentation/d/1IJ7ehfH9NShpu2X5ST1YGa1Dq9zZRnqs9S3bvtW9gzw/edit
+
+These include diagrams of the process and a summary of the technologies used.
+
+
 ## Developer Experience
 
 The process for a developer working on the app code is as follows:
@@ -74,11 +82,14 @@ However, this does *not* show the status of the Helm chart deployed, only the Ku
 This is useful for the `dev` environment, because that uses Kustomize to deploy the app.  
 It is much less useful for the rest of the environments that deploy a Helm chart as any error in the Helm chart deployment would not make the Kustomize fail.
 
-TODO: Maybe it is possible to add a Health Check to the Kustomize that would only pass on successfult podinfo deployment that would improve visibility.
+TODO: Maybe it is possible to add a Health Check to the Kustomize that would only pass on successful podinfo deployment that would improve visibility.
 
 Each environment after `dev` will create a PR for the next environment on successful deployment of the Helm chart, so if no PR shows up, the Helm deployment failed.
 
-You can also see the version of the Helm chart deployed to each cluster using the WGE applications UI as shown here:
+You can see the version of the Helm chart *requested* in the code by looking at the pipelines UI as shown here:
+
+
+You can also see the version of the Helm chart *deployed* to each cluster using the WGE applications UI as shown here:
 
 ![Screenshot from 2022-09-21 12-20-23](https://user-images.githubusercontent.com/1316183/191491375-077b6a51-bafa-4a68-801c-625736da0e8e.png)
 
