@@ -3,14 +3,16 @@ This repository is dealing with the Weave GitOps demos and demo environments. Pl
 
 # Demo Status
 
-## Demo3 is currently the stable environment this is our fall back
+## Demo3 is about to become the new developing environment, once all the changes from demo2 have been propogated.
 https://demo3.weavegitops.com
 - running v0.9.4 
 -  EKS is working use **aws-eks-dev** to create EKS clusters
 - Liquid Metal is working use **lm-edge** to create clusters
 
+TODO: Upgrade to v0.9.5 and create clusters for app-promotion demo, install TF-controller, Enable OIDC, increment any version updates from demo2
 
-## Demo2 is moving fast and might be unstable / this is where we try new stuff
+
+## Demo2 is being prepared for Kubecon, this environment needs to be stable.
 https://demo2.weavegitops.com
 - running v0.9.5
 - EKS is working use **aws-eks-dev** to create EKS clusters
