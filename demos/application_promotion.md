@@ -3,7 +3,7 @@
 ## Demo Features
 
 1. Demostrate GitOps and policy checking across a multi-stage build pipeline.
-2. Show a development environment with "instant" image deployment.
+2. Show a development environment with "instant" image deployment (uses a github action).
 3. Show a promotion pipeline across environments ending with the production environment that requires a pull request to deploy a new image.
 4. Show one design pattern for GitOps application promotion: monorepo, instant developer deployment, pull request gate.
 5. Use weave-policy-validator to check PRs for policy compliance, prior to release of the helm chart.
@@ -17,9 +17,17 @@ There are 5 environments for this demo.  These are leaf clusters that represent 
 - `stg` or staging, final checks prior to deployment to production,
 - `prod` or production.
 
-You can find links to the environments in each demo environment in the readme for the repo here:  
-- https://github.com/weavegitops/application-promotion-podinfo/blob/main/README.md
+### Demo2
 
+Links for demo2 are:
+- dev - http://172.16.20.211/podinfo
+- dev-test - http://172.16.20.212/podinfo
+- uat - http://172.16.20.213/podinfo
+- stg - http://172.16.20.214/podinfo
+- prod - http://172.16.20.215/podinfo
+
+### Demo3 
+TODO
 
 ## Application
 
@@ -58,15 +66,15 @@ The process for a developer working on the app code is as follows:
 1. Developer makes some changes to the app code in the cmd directory
 2. Developer pushes the changes to a feature branch, this runs a build of the container with a temporary tag, based on the commit SHA and a timestamp.
 3. The `dev` environment deploys the new container image, so the developer can see the new changes.
-4.  The developer continues to iterate the code and each push deploys a new image to `dev`
-5.  When the developer is ready to release the changes, he needs to set the new version number of the container and update the Helm chart
+4. The developer continues to iterate the code and each push deploys a new image to `dev`
+5. When the developer is ready to release the changes, he needs to set the new version number of the container and update the Helm chart
 6. The developer then creates a PR from the feature branch, this starts the CI testing
-7. The CI tests will check the versions have been incremented, validate against the policies, build the new container, validate the Helm chart and deploy a test of the Helm chart.
+7. The CI tests will check the versions have been incremented, validate against the policies, build the new container.
 8. If the tests do not pass, the developer can increment changes on the PR until all the tests pass.
 9. When all the tests pass, the PR can be merged.  This will release the new version of the Helm chart.
 10. The `dev-test` environment will then be updated with the new Helm chart and the new container.
-11.  If the Helm chart deploys correctly to the `dev-test` environment and is healthy a PR is automatically created to update the fixed version number for the `uat` environment.
-12.  This is then merged, which deploys the new Helm chart and container to the `uat` environment.
+11. If the Helm chart deploys correctly to the `dev-test` environment and is healthy a PR is automatically created to update the fixed version number for the `uat` environment.
+12. This is then merged, which deploys the new Helm chart and container to the `uat` environment.
 13. If the `uat` deployment is healthy, then a PR is created for the `stg` environment.
 14. This is merged and the Helm chart is deployed to `stg` and a PR created for `prod`.
 15. Finally the PR is merged to deploy the Helm chart to `prod`.
@@ -96,7 +104,9 @@ You can also see the version of the Helm chart *deployed* to each cluster using 
 
 ## Techniques used
 
-The `dev` environment uses Image Automation to watch the container registry for tags and will select the latest tag for deployment.  The Image Automation will then update the tag in the deployment.yaml and automatically merge the change to the repo.
+~~The `dev` environment uses Image Automation to watch the container registry for tags and will select the latest tag for deployment.  The Image Automation will then update the tag in the deployment.yaml and automatically merge the change to the repo.~~
+
+The dev environment now uses a github action to change the dev deployment manifest directly on any push to the latest container tag.  This was changed as the image automation used originally proved to be too slow.
 
 The `dev-test`, `uat`, `stg` and `prod` environments all use the Helm release and an Alert sent to the github repo to trigger the PR for the next environment.  They also use an Alert to notify the github repo when the kustomize successfully syncs from each commit.
 
@@ -136,7 +146,7 @@ This is quickly enough that you can talk about each of the techniques used and t
 ```
 
 5. Now show the podinfo app from `dev` in the UI in one part of your screen while showing the code that changes in the repository from the github UI, i.e. `environments/dev/podinfo/deployment.yaml`
-6. Optional - To use the policy check modify the replicaCount to 1 as detailed below.
+6. Optional - To use the policy check modify the replicaCount to 1 for the helm chart as detailed below.
 7. Now as the developer, I want to release my new container with a new Helm chart:
 - Increment the version of the container:  
 
@@ -169,7 +179,7 @@ This is quickly enough that you can talk about each of the techniques used and t
       -  https://github.com/weavegitops/application-promotion-podinfo/actions
 8. Once the process completes, merge the PR to release the Helm chart.
 9. While the chart releaser is running from Github Actions also show the podinfo app on the `dev-test` environment in another part of your screen.  
-10. When you see the podinfo app change, then show the PR that was created:
+10. Once podinfo is deployed to the `dev-test` environment, Show the PR that was created by the alert from the cluster:
       -  https://github.com/weavegitops/application-promotion-podinfo/pulls
 11. Approve the PR to `uat` and then show the podinfo app on the `uat` environment in one part of your screen while showing the code changes from the PR in github.
 12. When the podinfo app updates, then show the PR for the `stg` environment.
@@ -200,8 +210,7 @@ The policy check will create a fix for the violation automatically, just approve
 
 If the demo runs to completion, then no tidy up is needed.
 
-If however the demo did not run to completion, then you need to approve each PR into productio
-n.
+If however the demo did not run to completion, then you need to approve each PR into production.
 
 Also, if the changes you made are ugly like a really bad colour, then please reset the colour
 to the default and promote the changes across all the environments to reset the demo.
