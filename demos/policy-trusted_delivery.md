@@ -60,7 +60,7 @@ spec:
   filters:
     tags: [tenancy]
 ```
-That is any policy that has a **tenancy tag** set.
+That is any policy that has a **tenancy tag** set. You could filter by catergories or standards as well.
 
 This is currently only set for these two policies : 
 ```
