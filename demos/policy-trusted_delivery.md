@@ -5,6 +5,10 @@ The official Policy demo doc lives in Notion.
 https://www.notion.so/Scenario-2-Trusted-Delivery-62eed78e9bdf4664b64d2952d0707255
 
 If you want to demo policies in action, please use the following agent-configuration when setting up your policy-demo cluster :
+- The following configuration is specific to policy-agent v0.5.0
+- You might want to adjust the **accountID** and **clusterID** as the clusterID will show up in the audit reports
+- This config enables a aduit.json sink and a admission sink to k8sEvents.
+- This config referes to the admission-policy-set that is defined as part of the management repository : ./weave-gitops-platform/demo-policy-library
 ```
 policy-agent:
   image: magalixcorp/policy-agent
