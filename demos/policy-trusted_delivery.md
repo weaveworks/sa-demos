@@ -4,6 +4,9 @@
 The official Policy demo doc lives in Notion. 
 https://www.notion.so/Scenario-2-Trusted-Delivery-62eed78e9bdf4664b64d2952d0707255
 
+
+## Step 1 - Create a policy enabled cluster
+
 If you want to demo policies in action, please use the following agent-configuration when setting up your policy-demo cluster :
 - The following configuration is specific to policy-agent v0.5.0
 - You might want to adjust the **accountID** and **clusterID** as the clusterID will show up in the audit reports
@@ -82,3 +85,18 @@ If we look at the details of the ControllerMinimumReplicaCountSuperDevTenant/pol
 targets: {kinds: [Deployment], namespaces: [superdevs]}
 ```
 Deployments in the *superdevs* namespace.
+
+## Step 2
+
+After activating the policy is as part of step 1, we are now deploying a violating service. 
+
+Create the superdevs namespace in your cluster. ( This could be part of the app, check if anyone is still using this service. ) 
+```
+$ ku 28 create ns superdevs
+```
+
+Now fill in the values to add the application : 
+
+![Screenshot from 2022-10-05 15-46-48](https://user-images.githubusercontent.com/2788194/194076375-520730c0-6971-446b-8490-bd870a10d26d.png)
+
+
