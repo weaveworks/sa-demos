@@ -46,6 +46,19 @@ policySource:
   url: ssh://git@github.com/weavegitops/demo2-repo
 ```
 
-
-
+The above configuration refences the base kustomization.yaml : 
+[demo2-repo/weave-gitops-platform/demo-policy-library/kustomization.yaml](https://github.com/weavegitops/demo2-repo/blob/main/weave-gitops-platform/demo-policy-library/kustomization.yaml)
+and the admission controller will use the **admission-policy-set** :
+```
+apiVersion: pac.weave.works/v2beta1
+kind: PolicySet
+metadata:
+  name: admission-policy-set
+spec:
+  id: admission-policy-set
+  name: admission-policy-set
+  filters:
+    tags: [tenancy]
+```
+That is any policy that has a **tenancy tag** set.
 
