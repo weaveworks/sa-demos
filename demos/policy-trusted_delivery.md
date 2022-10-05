@@ -59,8 +59,11 @@ spec:
   name: admission-policy-set
   filters:
     tags: [tenancy]
+    # ids:
+    #   - weave.policies.containers-minimum-replica-count
+    # - weave.policies.tenancy.containers-minimum-replica-count
 ```
-That is any policy that has a **tenancy tag** set. You could filter by catergories or standards as well.
+That is any policy that has a **tenancy tag** set. You could filter by catergories or standards as well. If you are referring to **ids** directly, the will override the dynamic filters.
 
 This is currently only set for these two policies : 
 ```
