@@ -9,6 +9,7 @@ If you want to demo policies in action, please use the following agent-configura
 - You might want to adjust the **accountID** and **clusterID** as the clusterID will show up in the audit reports
 - This config enables a aduit.json sink and a admission sink to k8sEvents.
 - This config referes to the admission-policy-set that is defined as part of the management repository : ./weave-gitops-platform/demo-policy-library
+- There will be a git-source option that can be used in the policy-source section (can be used instead of path, secrect and url)
 ```
 policy-agent:
   image: magalixcorp/policy-agent
