@@ -125,6 +125,9 @@ We do have the following groups now :
 
 
 **Users**
+
+The passwords for the demo users are in 1P. You will need to login to a demo account before hitting the Login-with-OIDC button.
+
 - demo-limited-user@weave.works
 - demo-view-user@weave.works
 
