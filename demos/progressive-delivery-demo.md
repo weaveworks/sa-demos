@@ -1,5 +1,7 @@
 **Document status: initial draft**
 
+[Demo Recording by Darren on v0.9.5](https://drive.google.com/file/d/1vEgmlxvmdR_9yEysS5YvxaxqNmK2upWm/view)
+
 ## TODOs
 - [ ] Define hosts in Route 53
 - [ ] Create list of available hosts and reference below
