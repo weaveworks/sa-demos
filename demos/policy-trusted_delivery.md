@@ -70,3 +70,10 @@ $ grep -irl tenancy | grep policy.yaml
 ./policies/HPAMinimumReplicaCount/policy.yaml
 ```
 
+The kustomization.yaml is used to define the resoucres in the cluster. The policy-agent values.yaml setting will chose how these resources are treated. Are the reported on only / used for audit? Or will they be enforced through the Admission controller. The Policy-Set object **admission-policy-set** conrtols which policies will be used for the admission controller. In the configuration above, only ControllerMinimumReplicaCountSuperDevTenant/policy.yaml is enforced.
+
+If we look at the details of the ControllerMinimumReplicaCountSuperDevTenant/policy.yaml we will find that it will only be enforced on 
+```
+targets: {kinds: [Deployment], namespaces: [superdevs]}
+```
+Deployments in the *superdevs* namespace.
