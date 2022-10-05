@@ -62,3 +62,11 @@ spec:
 ```
 That is any policy that has a **tenancy tag** set.
 
+This is currently only set for these two policies : 
+```
+$ cd ~/git/demo2-repo/weave-gitops-platform/demo-policy-library
+$ grep -irl tenancy | grep policy.yaml
+./policies/ControllerMinimumReplicaCountSuperDevTenant/policy.yaml
+./policies/HPAMinimumReplicaCount/policy.yaml
+```
+
