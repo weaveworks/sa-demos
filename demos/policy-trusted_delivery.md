@@ -1,5 +1,46 @@
+**work in progress**
+
 # Policies
 The official Policy demo doc lives in Notion. 
 https://www.notion.so/Scenario-2-Trusted-Delivery-62eed78e9bdf4664b64d2952d0707255
+
+If you want to demo policies in action, please use the following agent-configuration when setting up your policy-demo cluster :
+```
+policy-agent:
+  image: magalixcorp/policy-agent
+  failurePolicy: Ignore
+
+  useCertManager: true
+  certificate: ""
+  key: ""
+  caCertificate: ""
+
+  persistence:
+    enabled: false
+
+  config:
+    accountId: my-account
+    clusterId: my-cluster
+    audit:
+      enabled: true
+      sinks:
+        filesystemSink:
+          fileName: audit.json
+    admission:
+      enabled: true
+      policySet: admission-policy-set
+      sinks:
+        k8sEventsSink:
+          enabled: true
+
+policySource:
+  branch: main
+  enabled: true
+  path: ./weave-gitops-platform/demo-policy-library
+  secretRef: flux-system
+  url: ssh://git@github.com/weavegitops/demo2-repo
+```
+
+
 
 
