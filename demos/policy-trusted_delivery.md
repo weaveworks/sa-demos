@@ -86,9 +86,9 @@ targets: {kinds: [Deployment], namespaces: [superdevs]}
 ```
 Deployments in the *superdevs* namespace.
 
-## Step 2
+## Step 2 - Deploy a violating service
 
-After activating the policy is as part of step 1, we are now deploying a violating service. 
+After activating the policy is as part of step 1, we are now deploying a violating service. We do have a simple application that has it's config in the apps/violating-service directory of the management cluster. We can use the Web UI to creathe the PR that will add the kustomization to add this app to our leaf cluster.
 
 Create the superdevs namespace in your cluster. ( This could be part of the app, check if anyone is still using this service. ) 
 ```
