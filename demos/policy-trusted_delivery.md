@@ -1,4 +1,4 @@
-**work in progress**
+**works for me (lutz)**
 
 # Policies
 The official Policy demo doc lives in Notion. 
