@@ -95,8 +95,26 @@ Create the superdevs namespace in your cluster. ( This could be part of the app,
 $ ku 28 create ns superdevs
 ```
 
-Now fill in the values to add the application : 
+* Now fill in the values to add the application : 
 
 ![Screenshot from 2022-10-05 15-46-48](https://user-images.githubusercontent.com/2788194/194076375-520730c0-6971-446b-8490-bd870a10d26d.png)
+
+* Create and merge the PR.
+
+Go to the application page of your cluster, you can hit the sync button on **flux-system** kustomization to speed things up.
+![Screenshot from 2022-10-06 08-48-03](https://user-images.githubusercontent.com/2788194/194233863-efeaa58d-6c44-40e3-9500-347b0e967f3d.png)
+
+* You can no find the application on the cluster, notice the error : 
+![Screenshot from 2022-10-06 08-48-53](https://user-images.githubusercontent.com/2788194/194233808-f8cd77da-ff59-4a27-a1b6-357d40c8cb84.png)
+
+* You can go to the "violation log" tab and see details of the violation ( bug - currently empty v0.9.5 ):
+![Screenshot from 2022-10-06 08-49-55](https://user-images.githubusercontent.com/2788194/194233743-fe0c78e4-d4bb-4278-822a-3026635841a2.png)
+
+* You can also find the violation in the global violations log : 
+
+![Screenshot from 2022-10-06 08-50-53](https://user-images.githubusercontent.com/2788194/194233719-d63591ee-8ccd-4ccc-b7d3-1c1980b7e800.png)
+
+
+
 
 
