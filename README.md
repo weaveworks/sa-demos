@@ -1,7 +1,11 @@
 # sa-demos
 This repository is dealing with the Weave GitOps demos and demo environments. Please use it to file and update issues that you are seeing. You can find the official demo guides here.
 
-# Demo Status
+# Demo Overview
+
+We do have table that has the overall info for the current [demos in notion](https://www.notion.so/weaveworks/e68deffcc9f24095b07607c45a7e13c9?v=bbe74a228384477eb4830869a8359fea)
+
+# Demo Environment Status
 
 ## Demo2 is the STABLE environment, do not modify, this will be used for Kubecon NA.
 https://demo2.weavegitops.com
