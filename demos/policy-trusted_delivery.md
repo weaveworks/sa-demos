@@ -111,7 +111,12 @@ Go to the application page of your cluster, you can hit the sync button on **flu
 * You can also find the violation in the global violations log : 
 ![Screenshot from 2022-10-06 08-50-53](https://user-images.githubusercontent.com/2788194/194233719-d63591ee-8ccd-4ccc-b7d3-1c1980b7e800.png)
 
+## Audit Log Demos
 
+We have 2 different ways to visualize the collected audit information. 
 
+On Prem : Through EFK. [A demo report can be found here](https://kibana.aws.dev.policy.weave.works/goto/b5153050-1c8b-11ed-af48-419b3139feed), please note, it takes 2 min to load this page.
+
+SaaS : We have the managment clusters connected to our Policy SaaS backend. This has nice looking reports. [https://policy.weave.works/home] you will need to be added to the demo team for access. Create an account and contact lutz@weave.works.
 
 
