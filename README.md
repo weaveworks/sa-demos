@@ -3,7 +3,7 @@ This repository is dealing with the Weave GitOps demos and demo environments. Pl
 
 # Demo Overview
 
-We do have table that has the overall info for the current [demos in notion](https://www.notion.so/weaveworks/e68deffcc9f24095b07607c45a7e13c9?v=bbe74a228384477eb4830869a8359fea)
+Consult this table [in notion](https://www.notion.so/weaveworks/e68deffcc9f24095b07607c45a7e13c9?v=bbe74a228384477eb4830869a8359fea) for a general overiew. 
 
 # Demo Environment Status
 
