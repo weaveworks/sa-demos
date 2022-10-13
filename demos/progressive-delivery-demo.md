@@ -1,5 +1,7 @@
 # Progressive Delivery Demo
 
+see also [Progressive Delivery in Notion](https://www.notion.so/weaveworks/Progressive-Delivery-demo-script-004618e154d04a8b8beed506a7d39174) 
+
 ## Overview
 
 Demonstrate how an application team would deploy an update to an application in a controlled progressive manner utilizing Flagger from within the Weave GitOps UI. Feature the observability functionality built into the “Delivery” section of WGE. Be able to show a failed roll-out as well as automated rollback while maintaining application resiliency.
