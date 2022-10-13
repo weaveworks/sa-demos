@@ -11,9 +11,9 @@
 
 There are a few questions that need answers. What do you want tenants to be able to do?
 
-* Create Clusters?
-* Access Clusters?
-* Access only certain namespaces in existing cluster?
+* Create Clusters? - Yes
+* Access Clusters? - Yes
+* Access only certain namespaces in leaf cluster?
 
 I'm starting by creating a **devteam1** tenant. 
 
