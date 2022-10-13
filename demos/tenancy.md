@@ -24,4 +24,4 @@ kubectl create ns devteam1
 kubectl create secret generic my-pat --from-literal GITHUB_TOKEN=$GITHUB_TOKEN -n devteam1
 ```
 
-The capability to create clusters is granted on a namespace access control. Thus we need all CapiTemplate, GitOpsCluster, and bootstrap objects in the devteam1 namespace. These are essentially copies of the defaut ns ones. I've put them into **devteam1** subdirs in [capi-templates](./weave-gitops-platform/capi-templates/devteam1) and [capi-profiles](weave-gitops-platform/capi-bootstrap/devteam1).
+The capability to create clusters is granted on a namespace access control. Thus we need all CapiTemplate, GitOpsCluster, and bootstrap objects in the devteam1 namespace. These are essentially copies of the defaut ns ones. I've put them into **devteam1** subdirs in [capi-templates](https://github.com/weavegitops/demo3-repo/tree/main/weave-gitops-platform/capi-bootstrap/devteam1) and [capi-profiles](weave-gitops-platform/capi-bootstrap/devteam1).
