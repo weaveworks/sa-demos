@@ -126,6 +126,8 @@ We do have the following groups now :
 
 **Users**
 
+We can use our regular users to access the demo environments. All Solution Architects are in the 
+
 The passwords for the demo users are in 1P. You will need to login to a demo account before hitting the Login-with-OIDC button.
 
 - demo-limited-user@weave.works
@@ -138,6 +140,22 @@ Lutz, Darryl and Darren are currently group admins.
 There are two places for configuring RBAC currently. 
 - for the management cluster : ` ~/git/demo2-repo/weave-gitops-platform/weave-gitops/read-all-role.yaml`
 - for all leaf clusters : ` ~/git/demo2-repo/clusters/bases/rbac/ `
+
+These ClusterRoles exist currently :
+```
+k get clusterrole | grep gitops- | grep -v weave | awk '{ print $1 }'
+gitops-apps-reader
+gitops-canaries-reader
+gitops-capicluster-reader
+gitops-configmaps-reader
+gitops-gitopsclusters-reader
+gitops-identities-reader
+gitops-pipelines-reader
+gitops-policies-reader
+gitops-reader
+gitops-secrets-reader
+gitops-templates-reader
+```
 
 # TODO
 we still need a good rbac definition and tenancy demo
