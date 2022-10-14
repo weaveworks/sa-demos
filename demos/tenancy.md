@@ -34,5 +34,23 @@ The capability to create clusters is granted on a namespace access control. Thus
 
 The result was that my user did not have access to the newly created cluster that was put into the devteam1 namespace. At least it did not show in the Cluster list. 
 
+The UI expects to have access to GitOps Templates and GitOps clusters in the default ns.
+
 ![Screenshot from 2022-10-14 10-10-23](https://user-images.githubusercontent.com/2788194/195808620-f1a4bd6f-a8bb-441b-84e6-1c50d57fcce6.png)
 
+## Test B - restrict access to clusters in the default ns with RBAC
+
+```
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: limited-users-clusterrole
+subjects:
+- kind: Group
+  name: "team-demo-limited-users@weave.works"
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: limited-users
+  apiGroup: rbac.authorization.k8s.io
+```
