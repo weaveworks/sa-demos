@@ -54,3 +54,6 @@ roleRef:
   name: limited-users
   apiGroup: rbac.authorization.k8s.io
 ```
+
+And a [limited-users Cluster Role](https://github.com/weavegitops/demo3-repo/blob/main/weave-gitops-platform/weave-gitops/limited-users-role.yaml) that I created by taking the gitops reader role und ajusting a few access right down so that they only match certain objects
+
