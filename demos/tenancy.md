@@ -123,6 +123,17 @@ One WGE UI per Tenant ( installed in 1st tenant cluster )
 
 - deactivte capi in helm chart
 - add dex client secret
+```
+ku 1 create secret generic dex-client-credentials \
+      --from-literal=clientID=weave-gitops-enterprise \
+      --from-literal=clientSecret=mySecretIsNotSave135 \
+      -n flux-system
+```
+- add weave-gitops-enterprise-credentials secret
+```
+ENTITLEMENTFILE="$HOME/.wge/new-entitlement.yaml"
+ku 1 create -f "$ENTITLEMENTFILE"
+```
 - add route53 dns entry
 - enable OIDC in Google
 - add dex client secret manually
