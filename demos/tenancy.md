@@ -80,6 +80,7 @@ And a [limited-users Cluster Role](https://github.com/weavegitops/demo3-repo/blo
 It turns out this approach is not feasible, as per documentation : 
 ```
 Note: You cannot restrict create or deletecollection requests by their resource name. For create, this limitation is because the name of the new object may not be known at authorization time. If you restrict list or watch by resourceName, clients must include a metadata.name field selector in their list or watch request that matches the specified resourceName in order to be authorized. For example, kubectl get configmaps --field-selector=metadata.name=my-configmap
+```
 
 ## Test C - using multiple UIs to get cluster level tenancy.
 
