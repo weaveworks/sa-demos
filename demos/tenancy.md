@@ -96,6 +96,8 @@ Update using Weave GitOps: v0.10.0 UI is empty. Am I missing RBAC? Using LM clus
 Certificate is not ready, as https solver can't work, and dns solver is not set up correctly for this. I would need a way to manipulate Route 53 from my leaf cluster or do it manually.
 
 --> Try again using EKS instead of LM for now.
+* Create EKS cluster
+* Activate Cluster issuer
 
 
 ### Model 2 - Management Cluster + Leaf Clusters with WGE UI
@@ -112,8 +114,10 @@ One WGE UI per Tenant ( installed in 1st tenant cluster )
 - RBAC access can be but on leaf clusters for the tenants needing access
 - GitOpsCluster Objects can be placed in the default ns on the leaf management cluster.
 
-Task List :
-- Install WGE on a leaf cluster
-- Expose the UI
-- Connect another Leaf cluster that is already connected to demo3
+* Create EKS cluster
+* Activate Cluster issuer
+* Deploy WGE to leaf cluster
+* Expose UI
+* Configure OICD
+* Add GitOps Cluster
 
