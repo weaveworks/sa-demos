@@ -9,10 +9,7 @@
 
 While the tenancy model is very flexible, it does not deliver out of the box capabilities that I need for the clusters per tenant model. It is currently more geared towards a slicing up one cluster into multiple tenants scenario.
 
-The clusters per tenant model is something that we could get to with RBAC currently. There is a bug however that prevents us from restricting access to the default ns for tenants. ( file bug )
-
-My next try is to 
-
+The clusters per tenant model is something that we could get to with RBAC currently. There is a bug however that prevents us from restricting access to the default ns for tenants. ( Simon is working on this, but it might land in v0.9.7  )
 
 ## Test A - with a devteam1 tenant
 
@@ -20,7 +17,7 @@ There are a few questions that need answers. What do you want tenants to be able
 
 * Create Clusters? - Yes
 * Access Clusters? - Yes
-* Access only certain namespaces in leaf cluster?
+* Access only certain namespaces in leaf cluster ( this is what currently works with the tenany model )
 
 I'm starting by creating a **devteam1** tenant. 
 
@@ -30,7 +27,9 @@ kubectl create ns devteam1
 kubectl create secret generic my-pat --from-literal GITHUB_TOKEN=$GITHUB_TOKEN -n devteam1
 ```
 
-The capability to create clusters is granted on a namespace access control. Thus we need all CapiTemplate, GitOpsCluster, and bootstrap objects in the devteam1 namespace. These are essentially copies of the defaut ns ones. I've put them into **devteam1** subdirs in [capi-templates](https://github.com/weavegitops/demo3-repo/tree/main/weave-gitops-platform/capi-templates/devteam1) and [capi-profiles](https://github.com/weavegitops/demo3-repo/tree/main/weave-gitops-platform/capi-profiles/devteam1).
+We can create cluster and separate them per namespace. Thus we need all CapiTemplate, GitOpsCluster, and bootstrap objects in the devteam1 namespace. These are essentially copies of the defaut ns ones. I've put them into **devteam1** subdirs in [capi-templates](https://github.com/weavegitops/demo3-repo/tree/main/weave-gitops-platform/capi-templates/devteam1) and [capi-profiles](https://github.com/weavegitops/demo3-repo/tree/main/weave-gitops-platform/capi-profiles/devteam1).
+
+This allows the admin user to create a cluster in the devteam1 namespace. The CAPITemplate needs to reside in the default ns currently. If we put it into devteam1 it will not be visible in the UI. (bug)
 
 The result was that my user did not have access to the newly created cluster that was put into the devteam1 namespace. At least it did not show in the Cluster list. 
 
