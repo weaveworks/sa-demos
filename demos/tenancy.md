@@ -56,3 +56,37 @@ roleRef:
 
 And a [limited-users Cluster Role](https://github.com/weavegitops/demo3-repo/blob/main/weave-gitops-platform/weave-gitops/limited-users-role.yaml) that I created by taking the gitops reader role und ajusting a few access right down so that they only match certain objects
 
+## Test C - using multiple UIs to get cluster level tenancy.
+
+If we can't get RBAC and our UI working in a way that gives us tenancy, we could run multiple UIs.
+
+### Model 1 - Managment Cluster + Leaf Clusters with Weave GitOps UI
+
+One Management UI for the Admins
+- Cluster creating on Managment cluster
+- Observablity on Tenant UI ( Weave Gitops Core )
+
+--> there is no cluster view in Tenant UI, just application
+--> only one cluster per tenant UI
+
+This is tested and it works.
+
+### Model 2 - Management Cluster + Leaf Clusters with WGE UI
+
+One WGE UI for Admins
+
+One WGE UI per Tenant ( installed in 1st tenant cluster )
+
+? Can both Admin and Tenant UI have the same leaf cluster connected?
+- They would need to be connected with the same git repository config, but that is only a flux thing...
+- This should work as it is essentially only a GitOpsCluster and a kubeconfig secret that is required.
+
+? Can we restrict access to the clusters correctly?
+- RBAC access can be but on leaf clusters for the tenants needing access
+- GitOpsCluster Objects can be placed in the default ns on the leaf management cluster.
+
+Task List :
+- Install WGE on a leaf cluster
+- Expose the UI
+- Connect another Leaf cluster that is already connected to demo3
+
