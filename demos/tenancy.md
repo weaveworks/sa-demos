@@ -138,7 +138,7 @@ ku 1 create secret generic dex-client-credentials \
 ENTITLEMENTFILE="$HOME/.wge/new-entitlement.yaml"
 ku 1 create -f "$ENTITLEMENTFILE"
 ```
-- create auth secret for admin user 
+- create auth secret for admin user "Demo2SecretPw!"
 ```
 ku 1 create secret generic cluster-user-auth --namespace flux-system --from-literal=username=wego-admin --from-literal=password='$2a$10$fU9b05.5l/xsS24bfWBnOeU5Q.gBFR6ROtYlN2PMJ5foicpaBxusC'
 ```
