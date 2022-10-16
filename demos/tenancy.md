@@ -54,6 +54,28 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
+
+```kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/instance: weave-gitops-enterprise
+    rbac.authorization.k8s.io/aggregate-to-limited-users-reader: "true"
+  name: devteam1-gitopsclusters-reader
+  resourceVersion: "157739226"
+  uid: 4a491f23-09ce-4c6e-843a-84870eea0e1f
+rules:
+- apiGroups:
+  - gitops.weave.works
+  resources:
+  - gitopsclusters
+  resourceNames:
+  - "devteam*"
+  verbs:
+  - get
+  - watch
+  - list
+```
+
 And a [limited-users Cluster Role](https://github.com/weavegitops/demo3-repo/blob/main/weave-gitops-platform/weave-gitops/limited-users-role.yaml) that I created by taking the gitops reader role und ajusting a few access right down so that they only match certain objects
 
 ## Test C - using multiple UIs to get cluster level tenancy.
@@ -70,6 +92,9 @@ One Management UI for the Admins
 --> only one cluster per tenant UI
 
 This is tested and it works.
+Update using Weave GitOps: v0.10.0 UI is empty. Am I missing RBAC? Using LM clusters :
+Certificate is not ready, as https solver can't work, and dns solver is not set up correctly for this. I would need a way to manipulate Route 53 from my leaf cluster or do it manually.
+
 
 ### Model 2 - Management Cluster + Leaf Clusters with WGE UI
 
