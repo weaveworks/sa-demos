@@ -54,8 +54,8 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-
-```kind: ClusterRole
+```
+kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/instance: weave-gitops-enterprise
