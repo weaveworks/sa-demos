@@ -95,6 +95,8 @@ This is tested and it works.
 Update using Weave GitOps: v0.10.0 UI is empty. Am I missing RBAC? Using LM clusters :
 Certificate is not ready, as https solver can't work, and dns solver is not set up correctly for this. I would need a way to manipulate Route 53 from my leaf cluster or do it manually.
 
+--> Try again using EKS instead of LM for now.
+
 
 ### Model 2 - Management Cluster + Leaf Clusters with WGE UI
 
