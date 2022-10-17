@@ -125,10 +125,12 @@ One WGE UI per Tenant ( installed in 1st tenant cluster )
 - don't use the default capa profile. It will create a cluster where the Nodes are on the private VPN only. You can't access the WGE UI easily there.
 - I've created an EKS cluster with eksctl
 
+Issue with the Token from the kubeconfig. Switching to EC2 based cluster instead.
+
 * Activate Cluster issuer
 - Connect the cluster to demo3 management for visiblity and bootstrap.
 
-1. Create the kubeconfig secret for devteam-eks2 in demo3
+1. Create the kubeconfig secret for devteam-eks2 in demo3 ( is already there if EC2 cluster ist capi provisioned )
 ```
 mv ~/.kube/config ~/.kube/oldconfig
 aws-login
@@ -142,7 +144,8 @@ kubectl create secret generic devteam-eks2-kubeconfig --from-file=value=$HOME/.k
 2. Build and commit GitOpsCluster Object 
 ```
 cd $HOME/git/demo3-repo
-cat <<EOF > clusters/management/clusters/default/devteam-eks2.yaml
+cat <<EOF > clusters/management/clusters/defaulls
+t/devteam-eks2.yaml
 
 apiVersion: gitops.weave.works/v1alpha1
 kind: GitopsCluster
