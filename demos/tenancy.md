@@ -122,7 +122,45 @@ One WGE UI per Tenant ( installed in 1st tenant cluster )
 - GitOpsCluster Objects can be placed in the default ns on the leaf management cluster.
 
 * Create EKS cluster
+- don't use the default capa profile. It will create a cluster where the Nodes are on the private VPN only. You can't access the WGE UI easily there.
+- I've created an EKS cluster with eksctl
+
 * Activate Cluster issuer
+- Connect the cluster to demo3 management for visiblity and bootstrap.
+
+1. Create the kubeconfig secret for devteam-eks2 in demo3
+```
+mv ~/.kube/config ~/.kube/oldconfig
+aws-login
+aws eks update-kubeconfig --region eu-central-1 --name devteam-eks2
+mv ~/.kube/config ~/.kube/devteam-eks2.config
+mv ~/.kube/oldconfig ~/.kube/config
+kubectl config use-context LutzAdm@wge-demo3.eu-west-1.eksctl.io
+kubectl create secret generic devteam-eks2-kubeconfig --from-file=value=$HOME/.kube/devteam-eks2.config
+```
+
+2. Build and commit GitOpsCluster Object 
+```
+cd $HOME/git/demo3-repo
+cat <<EOF > clusters/management/clusters/default/devteam-eks2.yaml
+
+apiVersion: gitops.weave.works/v1alpha1
+kind: GitopsCluster
+metadata:
+  name: demo-01
+  namespace: default
+  # Signals that this cluster should be bootstrapped.
+  labels:
+    weave.works/capi: bootstrap
+spec:
+  secretRef:
+    name: demo-01-kubeconfig
+EOF
+git add clusters/management/clusters/default/devteam-eks2.yaml
+git commit -m 'connect devteam-eks2'
+git push
+```
+
 * Deploy WGE to leaf cluster
 
 - deactivte capi in helm chart
