@@ -147,14 +147,14 @@ cat <<EOF > clusters/management/clusters/default/devteam-eks2.yaml
 apiVersion: gitops.weave.works/v1alpha1
 kind: GitopsCluster
 metadata:
-  name: demo-01
+  name: devteam-eks2
   namespace: default
   # Signals that this cluster should be bootstrapped.
   labels:
     weave.works/capi: bootstrap
 spec:
   secretRef:
-    name: demo-01-kubeconfig
+    name: devteam-eks2-kubeconfig
 EOF
 git add clusters/management/clusters/default/devteam-eks2.yaml
 git commit -m 'connect devteam-eks2'
