@@ -28,7 +28,7 @@ These include diagrams of the process and a summary of the technologies used.
 
 After introducing the concept of canary deployments and the importance of Flagger as an automation tool, we first demonstrate a failed deployment and prove that the production application is unaffected. We then demonstrate a successful application upgrade in a controlled manner and prove the upgrade becomes available to the end users seamlessly.
 
-1.  Show current status of [progress-deliver-demo32 cluster](https://demo3.weavegitops.com/cluster/details?clusterName=progress-delivery-demo32)
+1.  Show current status of [progress-delivery-demo32 cluster](https://demo3.weavegitops.com/cluster/details?clusterName=progress-delivery-demo32)
 2.  Drill into [Applications](https://demo3.weavegitops.com/applications?filters=clusterName%3A%20default%2Fprogress-delivery-demo32) for that cluster
 3.  Show flagger and ingress-nginx are installed and running (optionally drill into flagger to show loadbalancer and Prometheus components installed)
 4.  Show status of p[odinfo application](https://demo3.weavegitops.com/helm_release/details?clusterName=default%2Fprogress-delivery-demo32&name=podinfo&namespace=test).  Note current version number.
