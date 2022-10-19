@@ -1,5 +1,44 @@
 # Work in progress
 
+## Basic App Demo
+This demo is designed to show how simple it is to deploy applications to Kubernetes using Weave GitOps (Flux). It is therefore a 
+golden path and tries to hide complex functions in favour of simplicity. It should be used when the audience are still at the early stages of
+moving towards cloud native and we are not looking to overwhelm with
+art of the possible.
+
+## Prerequisites
+- **Git Repository source** - can be manually created with `flux create source git podinfo --url https://github.com/weavegitops/podinfo-app --branch main --export`
+then checked into an appropriate location to be reconciled to the cluster.
+
+## Demo steps
+
+### Initial deployment
+
+1. Login to the management cluster using OIDC or cluster admin
+1. Navigate to the applications page
+1. Click add application
+1. Fill out the form as follows:
+  1.  cluster: management
+  1.  source: GitRepository/podinfo
+  1.  kustomization name: podinfo
+  1.  kustomization namespace: (*leave as flux-system*)
+  1.  target namespace: (*leave blank*)
+  1.  path: \/
+1. Authenticate with GitHub
+1. Create and merge pull request
+1. Navigate back to Applications page
+1. Sync flux-system with source
+1. Show podinfo kustomization and walk through the tabs
+
+### Successful update
+1. Click hyperlink to source repo
+1. Push change to update backend deployment with new image tag, i.e. 6.1.0
+1. Navigate back to podinfo kustomization
+1. Sync with source
+1. Watch success
+
+---
+
 # Application Demos
 
 Adding an Application to a Leaf Cluster.
