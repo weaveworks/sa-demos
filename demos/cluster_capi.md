@@ -1,4 +1,4 @@
-Proven to work on v0.9.4 and v0.9.3
+Proven to work on v0.9.5
 
 # How to demo cluster creation
 
