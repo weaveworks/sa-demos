@@ -23,8 +23,6 @@ https://demo3.weavegitops.com
 ### TODO
 - create clusters for app-promotion demo
 - install TF-controller
-- increment any version updates from demo2
-- copy templates from demo2
 
 ## Accessing the Management Clusters
 
