@@ -7,7 +7,7 @@ Consult [this table in notion](https://www.notion.so/weaveworks/e68deffcc9f24095
 
 # Demo Environment Status
 
-## Demo2 is the STABLE environment, do not modify, this will be used for Kubecon NA.
+## Demo2 is the stable environment, to be used for most customer demos
 https://demo2.weavegitops.com
 - running v0.9.5
 - EKS is working use **aws-eks-dev** to create EKS clusters
@@ -15,7 +15,7 @@ https://demo2.weavegitops.com
 - Pipelines feature flag: On
 - TerraformUI feature flag: Off
 
-## Demo3 is now the new developing environment.
+## Demo3 is now the latest developing environment
 https://demo3.weavegitops.com
 - running v0.9.5
 -  EKS is working use **aws-eks-dev** to create EKS clusters
