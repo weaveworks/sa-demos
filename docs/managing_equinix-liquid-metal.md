@@ -38,7 +38,7 @@ Each of these subdirectories holds a customized copy of the [original terraform 
 
 To configure, roll out our change an environment, you need to configure the terraform.tfvars.json.
 
-Please note that the ts_auth_key has timed out and needs a refresh. 
+Please note that the ts_auth_key has timed out and needs a refresh. Tailscale is required to allow for a communication between the AWS based EKS Managment cluster and the Equinix Metal environment. The EKS cluster runs in a private VPC and the virtual network between the bare metal host is a private one as well. 
 
 ```
 ubuntu@ip-10-0-5-13:~$ cd git/LIQUID/demo3/liquid-metal-tf/terraform
@@ -59,3 +59,9 @@ ubuntu@ip-10-0-5-13:~/git/LIQUID/demo3/liquid-metal-tf/terraform$ terraform plan
 ...
 No changes. Your infrastructure matches the configuration.
 ```
+
+The tailscale key can be updated by visiting [tailscale.com](https://www.tailscale.com). Login to the "Admin Console" with your weave.works account. Ciaran Moran is our Admin. 
+
+![Screenshot from 2022-11-01 14-12-38](https://user-images.githubusercontent.com/2788194/199241309-7c03f92c-125b-4a88-a18c-d48018ca197a.png)
+
+You can create new Keys if you are Admin, or Network Admin. Please raise a [corp issue](https://github.com/weaveworks/corp/issues/new/choose) if you need to create a new key.
