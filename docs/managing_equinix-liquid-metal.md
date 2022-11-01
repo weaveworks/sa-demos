@@ -64,4 +64,4 @@ The tailscale key can be updated by visiting [tailscale.com](https://www.tailsca
 
 ![Screenshot from 2022-11-01 14-12-38](https://user-images.githubusercontent.com/2788194/199241309-7c03f92c-125b-4a88-a18c-d48018ca197a.png)
 
-You can create new Keys if you are Admin, or Network Admin. Please raise a [corp issue](https://github.com/weaveworks/corp/issues/new/choose) if you need to create a new key.
+You can create new keys if you are role is admin, or network admin. Please raise a [corp issue](https://github.com/weaveworks/corp/issues/new/choose) if you need need to create new keys and ask for a role change.
