@@ -17,7 +17,7 @@ https://demo2.weavegitops.com
 
 ## Demo3 is now the latest developing environment
 https://demo3.weavegitops.com
-- running v0.9.5
+- running v0.10.1-rc.2
 -  EKS is working use **aws-eks-dev** to create EKS clusters
 - Liquid Metal is working use **lm-edge** to create clusters
 - Pipelines feature flag: On
@@ -25,8 +25,9 @@ https://demo3.weavegitops.com
 
 
 ### TODO
-- create clusters for app-promotion demo
-- install TF-controller
+- enable external-secrets
+- update demo2 
+- document tenancy demo
 
 ## Accessing the Management Clusters
 
