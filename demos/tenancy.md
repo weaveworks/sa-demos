@@ -49,15 +49,9 @@ We can create cluster and separate them per namespace. Thus we need all CapiTemp
 
 This allows the admin user to create a cluster in the devteam1 namespace. 
 
-The result was that my user did not have access to the newly created cluster that was put into the devteam1 namespace. At least it did not show in the Cluster list. 
+## B) - using multiple UIs to get cluster level tenancy.
 
-![Screenshot from 2022-10-14 10-10-23](https://user-images.githubusercontent.com/2788194/195808620-f1a4bd6f-a8bb-441b-84e6-1c50d57fcce6.png)
-
-## B - using multiple UIs to get cluster level tenancy.
-
-If we can't get RBAC and our UI working in a way that gives us tenancy, we could run multiple UIs.
-
-### Model 1 - Managment Cluster + Leaf Cluster with WGE tenant UI
+**Managment Cluster + Leaf Cluster with WGE tenant UI**
 
 One Management UI for the Admins
 - Cluster creating on Managment cluster
