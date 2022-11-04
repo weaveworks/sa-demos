@@ -9,8 +9,8 @@ Imagine you are a service provider that has a platform team that creates and man
 
 There are 2 ways to accomodate the needs 
 
-A) Shared WGE UI
-B) Dedicated WGE UIs per platform team and per tenant
+* A) Shared WGE UI
+* B) Dedicated WGE UIs per platform team and per tenant
 
 There is the choice if you want to allow tenants to create clusters or not. This is up to the platform team / business to decide.
 
