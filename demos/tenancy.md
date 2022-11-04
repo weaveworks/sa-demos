@@ -47,7 +47,11 @@ kubectl create secret generic my-pat --from-literal GITHUB_TOKEN=$GITHUB_TOKEN -
 
 We can create cluster and separate them per namespace. Thus we need all CapiTemplate, GitOpsCluster, and bootstrap objects in the devteam1 namespace. These are essentially copies of the defaut ns ones. I've put them into **devteam1** subdirs in [capi-templates](https://github.com/weavegitops/demo3-repo/tree/main/weave-gitops-platform/capi-templates/devteam1) and [capi-profiles](https://github.com/weavegitops/demo3-repo/tree/main/weave-gitops-platform/capi-profiles/devteam1).
 
-This allows the admin user to create a cluster in the devteam1 namespace. 
+There are a number of details that you need to get right to put the new cluster objects into the correct git path. This is clusters/devteam1/myclusterX and clusters/management/devteam1/myclusterX.yaml.
+
+You template needs the have a NAMESPACE parameter. And your objects need to be put into the right namespace. If you want you tenants to be able to create clusters, the CAPITemplate objects needs to be in the tenant ns. 
+
+As an Admin use the **lm-edge-cilium-devteam1** template to create a new cluster for tenant devteam1 .
 
 ## B) - using multiple UIs to get cluster level tenancy.
 
