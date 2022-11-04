@@ -51,7 +51,7 @@ There are a number of details that you need to get right to put the new cluster 
 
 You template needs the have a NAMESPACE parameter. And your objects need to be put into the right namespace. If you want you tenants to be able to create clusters, the CAPITemplate objects needs to be in the tenant ns. 
 
-As an Admin use the **lm-edge-cilium-devteam1** template to create a new cluster for tenant devteam1 .
+As an admin use the **lm-edge-cilium-devteam1** template to create a new cluster for tenant devteam1 .
 
 ## B) - using multiple UIs to get cluster level tenancy.
 
