@@ -142,4 +142,4 @@ ku 1 create secret generic cluster-user-auth --namespace flux-system --from-lite
 * Configure OICD
 * Add GitOps Cluster
 
-**NOTE: see the interal WGE deployment and [template work on this](https://github.com/weaveworks/corp-fleet/blob/main/templates/bases/eks_machinedeployment_wge_external_repo/eks_cluster.yaml)**
+**NOTE: see the internal WGE deployment and [template work on this](https://github.com/weaveworks/corp-fleet/blob/main/templates/bases/eks_machinedeployment_wge_external_repo/eks_cluster.yaml)**
