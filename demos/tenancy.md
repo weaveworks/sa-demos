@@ -1,4 +1,18 @@
 **work in progress**
+ * this is currently not a guide but an investigation description
+
+# Prepare the demo
+
+We need 
+* A User in OIDC for this : demo-limited-user
+* A browser profile in Chrome 
+* A tenant namespace in the Management Cluster
+  * with a cluster bootstrap config
+  * possibly with a cluster template 
+  * a deployed tenant cluster in that namespace 
+* RBAC controls for the tenant user 
+  * in the management cluster
+  * in the leaf cluster
 
 # Tenancy demo guide
 
