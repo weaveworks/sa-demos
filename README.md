@@ -17,11 +17,11 @@ https://demo2.weavegitops.com
 
 ## Demo3 is now the latest developing environment
 https://demo3.weavegitops.com
-- running v0.10.1-rc.2
+- running v0.10.2
 -  EKS is working use **aws-eks-dev** to create EKS clusters
 - Liquid Metal is working use **lm-edge** to create clusters
 - Pipelines feature flag: On
-- TerraformUI feature flag: Off
+- TerraformUI feature flag: On
 
 
 ### TODO
