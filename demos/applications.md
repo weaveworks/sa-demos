@@ -1,6 +1,6 @@
 # Work in progress
 
-## Basic App Demo
+## Basic App Demo 
 This demo is designed to show how simple it is to deploy applications to Kubernetes using Weave GitOps (Flux). It is therefore a 
 golden path and tries to hide complex functions in favour of simplicity. It should be used when the audience are still at the early stages of
 moving towards cloud native and we are not looking to overwhelm with
@@ -43,7 +43,11 @@ then checked into an appropriate location to be reconciled to the cluster.
 
 Adding an Application to a Leaf Cluster.
 
-There are 2 types of Sources and then there is possibly Secrets. As Secrets make things more complicated, we stick to public Sources or Sources we do have the key for on the leaf and on the management cluster already.
+There are 3 different flows for deploying applications :
+- Add Application Flow 
+  - Adding a customization object
+  - Adding a HelmRelease object
+- Adding an application with a template GitOpsTemplate type: application
 
 ## GitRepository as Source
 
@@ -60,11 +64,8 @@ CON:
 PRO: 
 - no secrets need to be added
 - separate repo is more realistic
-- option to manipulate code easily
 CON: 
-- visible to all
-
-We can create public repositories on the **weavegitops** org easily.
+- visible to all ?
 
 For quick demo use [Podinfo App](https://github.com/weavegitops/podinfo-app) 
 
@@ -83,27 +84,9 @@ We have added the GitRepository Object to the [management cluster](https://githu
 
 This makes it available in the Add Application UI.
 
-
-**private repository as source**
-
-
 ## Helm Repository as Source
 
-We have the **app-charts** public repository for helm.
-
--------
-
-
-Application Demos currently require that you have a GitRepository object and the required secret before you can use the UI to add the kustomization.
-
-## Demo with Helm Chart and the app in the mangement repostiory
-
-Pro :
-- no need to deal with secrets when the app is in the management repo
-- no need to add a GitRepository as flux-system bootstrap has done this for us
-
-Con : 
-- no separate repo
+We have the **app-charts** public repository for helm. You can add your charts here, if you want to deploy a new application. We already have a podinfo and a podinfo-canary and wordpress.
 
 There is a podinfo helm chart in the management repo already. We can use that to deploy and application. 
 
@@ -127,8 +110,6 @@ Con :
 - you need to have the leaf cluster kubeconfig on the cli
 - the secret is created from the cli in the cluster
 - there is no central secrets management
-
-**_NOTE:_** there is currently a bug for EKS clusters, that will give you a kubeconfig that is only valid for 10 min. You can work around it by downloading the kubeconfig on the cli with 'aws eks update-kubeconfig --region eu-central-1 --name myekscluster
 
 Download the Leaf cluster kubeconfig and make its context default
 ```
