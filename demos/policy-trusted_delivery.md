@@ -1,4 +1,4 @@
-**works for me (lutz)**
+**works in progress (lutz)**
 
 # Policies
 The official Policy demo doc lives in Notion. 
@@ -8,14 +8,13 @@ https://www.notion.so/Scenario-2-Trusted-Delivery-62eed78e9bdf4664b64d2952d07072
 ## Step 1 - Create a policy enabled cluster
 
 If you want to demo policies in action, please use the following agent-configuration when setting up your policy-demo cluster :
-- The following configuration is specific to policy-agent v0.5.0
+- The following configuration is specific to policy-agent v0.5.3
 - You might want to adjust the **accountID** and **clusterID** as the clusterID will show up in the audit reports
 - This config enables a aduit.json sink and a admission sink to k8sEvents.
 - This config referes to the admission-policy-set that is defined as part of the management repository : ./weave-gitops-platform/demo-policy-library
 - There will be a git-source option that can be used in the policy-source section (can be used instead of path, secrect and url)
 ```
 policy-agent:
-  image: magalixcorp/policy-agent
   failurePolicy: Ignore
 
   useCertManager: true
@@ -27,7 +26,7 @@ policy-agent:
     enabled: false
 
   config:
-    accountId: my-account
+    accountId: sademo
     clusterId: my-cluster
     audit:
       enabled: true
@@ -46,6 +45,7 @@ policySource:
   enabled: true
   path: ./weave-gitops-platform/demo-policy-library
   secretRef: flux-system
+  sourceRef: flux-system
   url: ssh://git@github.com/weavegitops/demo2-repo
 ```
 
