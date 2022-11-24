@@ -45,7 +45,10 @@ policySource:
   enabled: true
   path: ./weave-gitops-platform/demo-policy-library
   secretRef: flux-system
-  sourceRef: flux-system
+  sourceRef: 
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
 ```
 
 The above configuration refences the base kustomization.yaml : 
