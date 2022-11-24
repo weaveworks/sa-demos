@@ -98,7 +98,7 @@ $ ku 10 create ns superdevs
 ```
 
 * Now fill in the values to add the application : 
-![Screenshot from 2022-10-05 15-46-48](https://user-images.githubusercontent.com/2788194/194076375-520730c0-6971-446b-8490-bd870a10d26d.png)
+![Screenshot from 2022-11-24 16-21-58](https://user-images.githubusercontent.com/2788194/203819188-efff56a7-8f5d-4492-8fdb-48de607ab8f7.png)
 
 * Create and merge the PR.
 Go to the application page of your cluster, you can hit the sync button on **flux-system** kustomization to speed things up.
