@@ -46,7 +46,6 @@ policySource:
   path: ./weave-gitops-platform/demo-policy-library
   secretRef: flux-system
   sourceRef: flux-system
-  url: ssh://git@github.com/weavegitops/demo2-repo
 ```
 
 The above configuration refences the base kustomization.yaml : 
