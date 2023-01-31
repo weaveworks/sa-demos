@@ -7,18 +7,18 @@ Consult [this table in notion](https://www.notion.so/weaveworks/e68deffcc9f24095
 
 # Demo Environment Status
 
-## Demo2 is the stable environment, to be used for most customer demos
+## Demo2 is the older stable environment, to be used for customer demos for features 
 https://demo2.weavegitops.com
 - running v0.10.3-rc.1
-- EKS is **NOT** working
+- EKS is working use **aws-eks-dev** to create clusters
 - LM provisioning is working with the **lm-edge** template
 - Pipelines feature flag: On
 - TerraformUI feature flag: Off
 
-## Demo3 is now the latest developing environment
+## Demo3 is now the latest developing environment, used for demos with the latest version - can be less stable.
 https://demo3.weavegitops.com
-- running v0.10.3-rc.1
-- EKS is **NOT** working
+- running v0.15.1
+- EKS is working use **aws-eks-dev** to create clusters
 - Liquid Metal is working use **lm-edge** to create clusters
 - Pipelines feature flag: On
 - TerraformUI feature flag: On
