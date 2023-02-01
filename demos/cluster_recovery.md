@@ -47,7 +47,7 @@ Use the delete cluster feature on the clusters list page:
 Then delete the cluster:
 * wordpress-mttr-demo-50-43
 
-![Screenshot](https://user-images.githubusercontent.com/1316183/216016268-f3d50bc2-0dee-4661-a9f2-e6c837c2006c.png)
+![Delete Cluster](https://user-images.githubusercontent.com/1316183/216016268-f3d50bc2-0dee-4661-a9f2-e6c837c2006c.png)
 
 Approve the PR created.
 
@@ -60,3 +60,4 @@ Watch as the cluster is restored.
 Now go to the blog URL and you will see the blog entirely restored with your new post.
 
 
+![Github Revert](https://user-images.githubusercontent.com/1316183/216016707-89b1563f-f510-4c48-ba49-989753358c67.png)
