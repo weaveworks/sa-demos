@@ -2,14 +2,14 @@
 
 ## Prerequisites
 
-You must already have a deployed cluster.
+You must already have a deployed cluster on demo3.
 The cluster is called: 
 
-* wordpress-mttr-demo-50-43
+* [wordpress-mttr-demo-50-43](https://demo3.weavegitops.com/cluster/details?clusterName=wordpress-mttr-demo-50-43)
 
 The template for creation of the cluster is:
 
-* lm-edge-nfs-wordpress
+* [lm-edge-nfs-wordpress](https://demo3.weavegitops.com/templates/lm-edge-nfs-wordpress/create)
 
 Deploy the cluster using the default values in this template.
 
@@ -25,18 +25,29 @@ You can log in to the admin page here:
 
 https://wordpress.weavegitops.com/wp-login.php
 
-The admin username and password are:
+The admin username and password are saved in onepassword in the WGE SA Demos shared Vault as well as here:
 
-* Username: admin
+* User: admin
 * Password: cj900dsm0cjkeOII
 
-Use the web interface to create a new page
+Use the web interface to create a new page in wordpress
+
+https://wordpress.weavegitops.com/wp-admin/post-new.php
+
+Click Publish at the top left to complete the post.
+
+
 Go back to the main website to show the newly created page.
 The next step is to destroy the cluster.
 
-Use the delete cluster function in the UI to delete the cluster:
+Use the delete cluster feature on the clusters list page:
 
+* https://demo3.weavegitops.com/clusters
+
+Then delete the cluster:
 * wordpress-mttr-demo-50-43
+
+![Screenshot](https://user-images.githubusercontent.com/1316183/216016268-f3d50bc2-0dee-4661-a9f2-e6c837c2006c.png)
 
 Approve the PR created.
 
@@ -47,4 +58,5 @@ Now go to the git repository and find the latest commit, revert the commit in a 
 Watch as the cluster is restored.
 
 Now go to the blog URL and you will see the blog entirely restored with your new post.
+
 
