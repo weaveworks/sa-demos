@@ -54,10 +54,12 @@ Approve the PR created.
 While the cluster is destroyed, explain some of the features of the WGE UI.
 Verify the cluster was destroyed by reloading the blog URL and it fails to load a page.
 
-Now go to the git repository and find the latest commit, revert the commit in a new PR.
-Watch as the cluster is restored.
-
-Now go to the blog URL and you will see the blog entirely restored with your new post.
+Now go to the git repository and find the latest commit, revert the commit from the merged PR:
 
 
 ![Github Revert](https://user-images.githubusercontent.com/1316183/216016707-89b1563f-f510-4c48-ba49-989753358c67.png)
+
+
+Watch as the cluster is restored.
+
+Now go to the blog URL and you will see the blog entirely restored with your new post.
