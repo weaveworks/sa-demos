@@ -20,6 +20,7 @@ https://demo3.weavegitops.com
 - running v0.15.1
 - EKS is working use **aws-eks-dev** to create clusters
 - Liquid Metal is working use **lm-edge** to create clusters
+- Demo clusters that will be deleted after the demo, just use: **demo-cluster-template** with the default values.
 - Pipelines feature flag: On
 - TerraformUI feature flag: On
 
