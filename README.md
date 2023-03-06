@@ -7,27 +7,26 @@ Consult [this table in notion](https://www.notion.so/weaveworks/e68deffcc9f24095
 
 # Demo Environment Status
 
-## Demo2 is the older stable environment, to be used for customer demos for features 
+## Demo2 is on the latest version and can be used for customer demos
 https://demo2.weavegitops.com
-- running v0.10.3-rc.1
+- running v0.18.1
 - EKS is working use **aws-eks-dev** to create clusters
 - LM provisioning is working with the **lm-edge** template
+- Demo clusters that must be deleted after the demo, just use: **demo-cluster-template** with the default values.
 - Pipelines feature flag: On
-- TerraformUI feature flag: Off
+- TerraformUI feature flag: On
 
-## Demo3 is now the latest developing environment, used for demos with the latest version - can be less stable.
+## Demo3 is on the latest version and can be used for customer demos
 https://demo3.weavegitops.com
-- running v0.15.1
+- running v0.18.1
 - EKS is working use **aws-eks-dev** to create clusters
 - Liquid Metal is working use **lm-edge** to create clusters
-- Demo clusters that will be deleted after the demo, just use: **demo-cluster-template** with the default values.
+- Demo clusters that must be deleted after the demo, just use: **demo-cluster-template** with the default values.
 - Pipelines feature flag: On
 - TerraformUI feature flag: On
 
 
 ### TODO
-- enable external-secrets
-- update demo2 
 - document tenancy demo
 
 ## Accessing the Management Clusters
