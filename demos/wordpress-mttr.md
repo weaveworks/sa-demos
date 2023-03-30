@@ -62,20 +62,27 @@ Once confirmation is received that all live services have been moved to the new 
 ![wge-wordpress-apps](https://user-images.githubusercontent.com/1316183/228943184-63558f92-4a9d-46a4-a104-8e532400541f.png)
 
 * Show the wordpress application
+![wge-wordpress-app-url](https://user-images.githubusercontent.com/1316183/228955645-d2e6fc81-f815-4d1d-b397-b6944e24de15.png)
+
 
 ## Deleting the cluster
 
 * We have received confirmation that the new system has taken over and we can retire this cluster now.
 * So, we go ahead and delete it.
 * Go to the Cluster list, tick the box next to the Wordpress-mttr-demo.. cluster and click on CREATE A PR TO DELETE CLUSTERS
+![wge-create-pr](https://user-images.githubusercontent.com/1316183/228955888-d99bd04c-94b0-403a-9be9-c4a7786ea50b.png)
+
 * Auth to Github
 * Create a PR, click on the link to go to github.
-* Approve the PR to delete the cluster (after a review of course)
+* Approve the PR to delete the cluster
+![github-merge-pr](https://user-images.githubusercontent.com/1316183/228956163-39d8c66c-7e24-4964-b41b-0ce8b0f5293e.png)
 
 Now we have approved the PR we have complete traceability of who carried out the deletion of the cluster, when and who approved the PR to deploy the change to our production infrastructure.
 
 * Go back to the WGE clusters list
 * Show the cluster deleting
+![wge-capi-deletion](https://user-images.githubusercontent.com/1316183/228956383-13dfa104-2e76-45b9-8499-7bee519aafdf.png)
+
 * When the cluster is deleted - should take less than 2 minutes
 * Now go back to the wordpress blog URL to verify that the blog has now gone.
 
@@ -93,7 +100,11 @@ Let's recover the cluster
 
 * Click on Closed Pull Requests
 * Click on the Delete Cluster pull request at the top
+![github-select-pr](https://user-images.githubusercontent.com/1316183/228956716-55756781-0b16-45f2-8b16-8ce323e3de57.png)
+
 * Now click the Revert button to create a new PR to revert the change
+![github-revert-pr](https://user-images.githubusercontent.com/1316183/228956748-7dbc4472-1419-4b99-ab35-edcf813309f5.png)
+
 * Approve this new PR
 
 ## Time to Recovery
