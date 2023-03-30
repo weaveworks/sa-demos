@@ -40,17 +40,26 @@ Once confirmation is received that all live services have been moved to the new 
 ![WGE-wordpress-cluster-list](https://user-images.githubusercontent.com/1316183/228941659-69c7abb1-6230-4e87-b32b-a14bfcbd5ef4.png)
 
 * Click on the cluster edit button to view the details of the cluster
+![edit](https://user-images.githubusercontent.com/1316183/228941913-3cb597b0-8dad-4e6f-b9f7-b6ec871d80dc.png)
+
 * Show the list of components that are installed
 
 * Click on some of the Values of the Profiles to show they are editable
 * Show the secret-store-config Values.yaml
+![WGE-wordpress-secret-store-config](https://user-images.githubusercontent.com/1316183/228942217-f6669359-2a0b-4e93-9cb4-74cbf4ac847b.png)
+
 * Explain that the cluster build process pushes a special secret into the cluster at install time 
 * This is then used to pull secrets from an external secrets store and sync them into the kubernetes cluster
+* Show the secrets in the secrets page
+
+![secrets-list](https://user-images.githubusercontent.com/1316183/228942657-b5281cf1-0521-4b9d-9453-c988f508e8c9.png)
+
 
 * Now go back to the cluster list, then click on the Wordpress-mttr-demo.. link to show the cluster status
 
 * Now click on Go To Applications
 * Show the applications running on the cluster and their status
+
 * Show the wordpress application
 
 ## Deleting the cluster
