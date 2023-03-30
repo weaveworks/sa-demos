@@ -37,6 +37,7 @@ Once confirmation is received that all live services have been moved to the new 
 * Go to the clusters list
 
 * Find the cluster: **wordpress-mttr-demo...**
+![WGE-wordpress-cluster-list](https://user-images.githubusercontent.com/1316183/228941659-69c7abb1-6230-4e87-b32b-a14bfcbd5ef4.png)
 
 * Click on the cluster edit button to view the details of the cluster
 * Show the list of components that are installed
