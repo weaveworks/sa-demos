@@ -112,9 +112,6 @@ Let's recover the cluster
 * Now we have approved the PR, start a timer
 * Go back to the WGE clusters list
 * Watch the cluster deployment start
-![wordpress-cluster-build](https://user-images.githubusercontent.com/1316183/228963816-7da0b920-0d50-4770-9906-ebd96f70a123.png)
-
-
 * Click on the cluster to show the status, wait for 3 green lights
 ![wge-cluster-status](https://user-images.githubusercontent.com/1316183/228963938-3c50b065-74e6-464d-bad9-886a37313a9b.png)
 
