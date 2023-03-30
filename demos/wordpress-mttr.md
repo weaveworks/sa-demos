@@ -106,9 +106,9 @@ Let's recover the cluster
 How does it work?
 
 We use the following:
-1 Git to store in version control the entire cluster definition, with all the platform applications and wordpress application configuration
-2 An NFS server to store the database data and any image data for the blog
-3 An external secret store provided by AWS Secret Manager
+1. Git to store in version control the entire cluster definition, with all the platform applications and wordpress application configuration
+2. An NFS server to store the database data and any image data for the blog
+3. An external secret store provided by AWS Secret Manager
 
 When we revert the commit that deletes the cluster we rebuild all the files in the git repository.
 
