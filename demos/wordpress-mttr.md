@@ -86,19 +86,20 @@ Approve this new PR
 
 ## Time to Recovery
 
-Now we have approved the PR, start a timer
-Go back to the WGE clusters list
-Watch the cluster deployment start
-Click on the cluster to show the status, wait for 3 green lights
-Click on Go To Applications - this will bring up a BLANK page
-Wait for another 2-3 minutes
-Applications should appear (if they don't hit refresh a few times while waiting)
-Then you can see the progress of the restore
-When the wordpress application finishes reconciling
-Click on the wordpress helm chart and show the status.
-Click on the App URL link to show the blog is up and running again with all it's data
+* Now we have approved the PR, start a timer
+* Go back to the WGE clusters list
+* Watch the cluster deployment start
+* Click on the cluster to show the status, wait for 3 green lights
+* Click on Go To Applications - this will bring up a BLANK page
+* Wait for another 2-3 minutes
+* Applications should appear (if they don't hit refresh a few times while waiting)
+* Then you can see the progress of the restore
+* When the wordpress application finishes reconciling
+* Click on the wordpress helm chart and show the status.
+* Click on the App URL link to show the blog is up and running again with all it's data
 
-Stop the timer
+
+* Stop the timer
 
 ## Explain Gitops Recovery
 
