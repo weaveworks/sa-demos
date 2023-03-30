@@ -18,17 +18,20 @@ Use the password to log in as the admin user.
 Show the main page of the blog
 
 Add a post to the blog
+![wordpress-add-new-post](https://user-images.githubusercontent.com/1316183/228937272-abd16e0b-f8d3-4d49-b7b7-9b262599fb55.png)
 
 Publish the new post
+![wordpress-publish-post](https://user-images.githubusercontent.com/1316183/228937251-1f40fca1-419b-4f64-a6c8-70c235d4e7a3.png)
 
 Show the blog and the new post
 
-# Migration of the Blog
+## Migration of the Blog
 
 We have been instructed to retire the wordpress blog as it has been replaced with an alternative system.
+
 Once confirmation is received that all live services have been moved to the new site, we can retire the cluster.
 
-# Showing the cluster
+## Showing the cluster
 
 Go to the WGE demo environment and log in
 Go to the clusters list
@@ -49,7 +52,7 @@ Now click on Go To Applications
 Show the applications running on the cluster and their status
 Show the wordpress application
 
-# Deleting the cluster
+## Deleting the cluster
 
 We have received confirmation that the new system has taken over and we can retire this cluster now.
 So, we go ahead and delete it.
@@ -65,12 +68,12 @@ Show the cluster deleting
 When the cluster is deleted - should take less than 2 minutes
 Now go back to the wordpress blog URL to verify that the blog has now gone.
 
-# EMERGENCY - INCIDENT RAISED
+## EMERGENCY - INCIDENT RAISED
 
 We are contacted by the Noc that some alarms are going off and some production systems are having an outage.
 It turns out one of the production systems had not been migrated to the new blog server at all!!
 
-# Initial Immediate Recovery
+## Initiate Immediate Recovery
 
 Let's recover the cluster
 
@@ -81,7 +84,7 @@ Click on the Delete Cluster pull request at the top
 Now click the Revert button to create a new PR to revert the change
 Approve this new PR
 
-# Time to Recovery
+## Time to Recovery
 
 Now we have approved the PR, start a timer
 Go back to the WGE clusters list
@@ -97,7 +100,7 @@ Click on the App URL link to show the blog is up and running again with all it's
 
 Stop the timer
 
-# Explain Gitops Recovery
+## Explain Gitops Recovery
 
 How does it work?
 
