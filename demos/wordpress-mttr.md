@@ -70,7 +70,7 @@ Now we have approved the PR we have complete traceability of who carried out the
 
 ## EMERGENCY - INCIDENT RAISED
 
-We are contacted by the Noc that some alarms are going off and some production systems are having an outage.
+We are contacted by an operations team that some alarms are going off and some production systems are having an outage.
 
 It turns out one of the production systems **had not been migrated to the new blog server at all!!**
 
