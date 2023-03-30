@@ -59,6 +59,7 @@ Once confirmation is received that all live services have been moved to the new 
 
 * Now click on Go To Applications
 * Show the applications running on the cluster and their status
+![wge-wordpress-apps](https://user-images.githubusercontent.com/1316183/228943184-63558f92-4a9d-46a4-a104-8e532400541f.png)
 
 * Show the wordpress application
 
