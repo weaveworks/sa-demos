@@ -4,6 +4,21 @@ This demo is very simple to run
 
 # Preparation
 
+You must have access to the Weave Gitops Enterprise demo environments:
+https://demo2.weavegitops.com
+OR
+https://demo3.weavegitops.com
+
+Log in with OIDC and use your google identity.
+If you cannot get that to work, then you can retrieve the **wego-admin** user password from Onepassword.
+Search for: **WGE Demo Admin**
+
+Use the username: **wego-admin**
+
+And the password that is listed in Onepassword.
+
+You will also need the admin username for the wordpress blog:
+
 Open Onepassword and find:
 **Wordpress Admin Cluster Recovery Demo**
 
