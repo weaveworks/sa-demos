@@ -49,7 +49,6 @@ To deploy a cluster:
 * Show the cluster details page and the 3 green ticks as the cluster deploys
 * Download the new kubeconfig, use some CLI commands to add it to your local kubeconfig
 * Show the cluster applications list and wait for the applications to come up
-* 
 
 # Self Service Deploying an Application
 
