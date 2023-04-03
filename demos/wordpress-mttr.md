@@ -4,6 +4,21 @@ This demo is very simple to run
 
 # Preparation
 
+You must have access to the Weave Gitops Enterprise demo environments:
+https://demo2.weavegitops.com
+OR
+https://demo3.weavegitops.com
+
+Log in with OIDC and use your google identity.
+If you cannot get that to work, then you can retrieve the **wego-admin** user password from Onepassword.
+Search for: **WGE Demo Admin**
+
+Use the username: **wego-admin**
+
+And the password that is listed in Onepassword.
+
+You will also need the admin username for the wordpress blog:
+
 Open Onepassword and find:
 **Wordpress Admin Cluster Recovery Demo**
 
@@ -37,34 +52,52 @@ Once confirmation is received that all live services have been moved to the new 
 * Go to the clusters list
 
 * Find the cluster: **wordpress-mttr-demo...**
+![WGE-wordpress-cluster-list](https://user-images.githubusercontent.com/1316183/228941659-69c7abb1-6230-4e87-b32b-a14bfcbd5ef4.png)
 
 * Click on the cluster edit button to view the details of the cluster
+![edit](https://user-images.githubusercontent.com/1316183/228941913-3cb597b0-8dad-4e6f-b9f7-b6ec871d80dc.png)
+
 * Show the list of components that are installed
 
 * Click on some of the Values of the Profiles to show they are editable
 * Show the secret-store-config Values.yaml
+![WGE-wordpress-secret-store-config](https://user-images.githubusercontent.com/1316183/228942217-f6669359-2a0b-4e93-9cb4-74cbf4ac847b.png)
+
 * Explain that the cluster build process pushes a special secret into the cluster at install time 
 * This is then used to pull secrets from an external secrets store and sync them into the kubernetes cluster
+* Show the secrets in the secrets page
+
+![secrets-list](https://user-images.githubusercontent.com/1316183/228942657-b5281cf1-0521-4b9d-9453-c988f508e8c9.png)
+
 
 * Now go back to the cluster list, then click on the Wordpress-mttr-demo.. link to show the cluster status
 
 * Now click on Go To Applications
 * Show the applications running on the cluster and their status
+![wge-wordpress-apps](https://user-images.githubusercontent.com/1316183/228943184-63558f92-4a9d-46a4-a104-8e532400541f.png)
+
 * Show the wordpress application
+![wge-wordpress-app-url](https://user-images.githubusercontent.com/1316183/228955645-d2e6fc81-f815-4d1d-b397-b6944e24de15.png)
+
 
 ## Deleting the cluster
 
 * We have received confirmation that the new system has taken over and we can retire this cluster now.
 * So, we go ahead and delete it.
 * Go to the Cluster list, tick the box next to the Wordpress-mttr-demo.. cluster and click on CREATE A PR TO DELETE CLUSTERS
+![wge-create-pr](https://user-images.githubusercontent.com/1316183/228955888-d99bd04c-94b0-403a-9be9-c4a7786ea50b.png)
+
 * Auth to Github
 * Create a PR, click on the link to go to github.
-* Approve the PR to delete the cluster (after a review of course)
+* Approve the PR to delete the cluster
+![github-merge-pr](https://user-images.githubusercontent.com/1316183/228956163-39d8c66c-7e24-4964-b41b-0ce8b0f5293e.png)
 
 Now we have approved the PR we have complete traceability of who carried out the deletion of the cluster, when and who approved the PR to deploy the change to our production infrastructure.
 
 * Go back to the WGE clusters list
 * Show the cluster deleting
+![wge-capi-deletion](https://user-images.githubusercontent.com/1316183/228956383-13dfa104-2e76-45b9-8499-7bee519aafdf.png)
+
 * When the cluster is deleted - should take less than 2 minutes
 * Now go back to the wordpress blog URL to verify that the blog has now gone.
 
@@ -82,7 +115,11 @@ Let's recover the cluster
 
 * Click on Closed Pull Requests
 * Click on the Delete Cluster pull request at the top
+![github-select-pr](https://user-images.githubusercontent.com/1316183/228956716-55756781-0b16-45f2-8b16-8ce323e3de57.png)
+
 * Now click the Revert button to create a new PR to revert the change
+![github-revert-pr](https://user-images.githubusercontent.com/1316183/228956748-7dbc4472-1419-4b99-ab35-edcf813309f5.png)
+
 * Approve this new PR
 
 ## Time to Recovery
@@ -91,16 +128,25 @@ Let's recover the cluster
 * Go back to the WGE clusters list
 * Watch the cluster deployment start
 * Click on the cluster to show the status, wait for 3 green lights
+![wge-cluster-status](https://user-images.githubusercontent.com/1316183/228963938-3c50b065-74e6-464d-bad9-886a37313a9b.png)
+
+
 * Click on Go To Applications - this will bring up a BLANK page
+![wge-apps-blank](https://user-images.githubusercontent.com/1316183/228964057-cf13f102-084a-45a7-a733-6118b769e3f4.png)
+
+
 * Wait for another 2-3 minutes
 * Applications should appear (if they don't hit refresh a few times while waiting)
+![wge-apps-reconciling](https://user-images.githubusercontent.com/1316183/228964379-4acab547-c53a-4007-81cf-63809a02bad5.png)
+
+
 * Then you can see the progress of the restore
 * When the wordpress application finishes reconciling
 * Click on the wordpress helm chart and show the status.
 * Click on the App URL link to show the blog is up and running again with all it's data
 
 
-* Stop the timer
+* Stop the timer, example total time: 7 minutes 30 seconds
 
 ## Explain Gitops Recovery
 
