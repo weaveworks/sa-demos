@@ -94,6 +94,10 @@ Now we can release the Helm chart with the new container version.
 * Click on the Merge button to merge the code and run the Helm release process
 * Go back to WGE and show the pipelines view and explain that once the chart is released it will deploy to dev automatically
 * Show the Delivery view and wait for the dev podinfo starts to rollout the application
+* Show the application URL to show the colour change happening, links are here:
+* http://demo3-cluster30.weavegitops.com/dev/podinfo/
+* http://demo3-cluster30.weavegitops.com/stg/podinfo/
+* http://demo3-cluster30.weavegitops.com/prd/podinfo/
 * The canary analysis will be completed successfully
 
 # Promoting the Application
