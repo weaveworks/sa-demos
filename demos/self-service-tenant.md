@@ -3,6 +3,7 @@
 We need:
 * A browser profile in Chrome with the google identity: demo-limited-user@weave.works
 * The Onepassword entry for the SA Demo Limited User in the Weaveworks Shared Vault
+* The cluster **team-shared-host51-cluster25** already deployed from the template: tenant-shared-cluster-template
 
 For Self Service Cluster (optional):
 * Check that cluster: **devteam1-hostxx-cluster30** is not deployed
@@ -12,6 +13,7 @@ For Self Service Cluster (optional):
 
 For Self Service Application:
 * Check that the cluster: **devteam1-hostxx-cluster30** is already deployed as this will be the target cluster
+* Check that the cluster: **team-shared-host51-cluster25** is already deployed as this will be another target cluster
 * Check you have access to the application developers repository: **https://github.com/weavegitops/application-promotion-podinfo**
 * Check that you can make a Pull Request against this repository
 * Install the following extensions in VSCode:
@@ -54,6 +56,7 @@ To deploy a cluster:
 
 To deploy a Helm chart application with a pipeline:
 * First check to see if the cluster: **devteam1-hostxx-cluster30** is already deployed.
+* Check that the cluster: **team-shared-host51-cluster25** is already deployed 
 * Now go to Templates
 * Use the template: **app-podinfo-chart-and-pipeline-devteam1**
 * Leave the default values
@@ -127,6 +130,7 @@ To reset the demo we need to remove the pipeline and Helmrelease objects these a
 * clusters/devteam1/devteam1-host25-cluster30/app-podinfo-dev
 * clusters/devteam1/devteam1-host25-cluster30/app-podinfo-stg
 * clusters/devteam1/devteam1-host25-cluster30/app-podinfo-prd
+* clusters/default/team-shared-host51-cluster25/app-podinfo-prd
 
 ## Cluster Self Service
 
