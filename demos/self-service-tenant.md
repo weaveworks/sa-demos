@@ -101,6 +101,7 @@ Now we can release the Helm chart with the new container version.
 * http://demo3-cluster30.weavegitops.com/dev/podinfo/
 * http://demo3-cluster30.weavegitops.com/stg/podinfo/
 * http://demo3-cluster30.weavegitops.com/prd/podinfo/
+* http://demo3-cluster25.weavegitops.com/prd/podinfo/
 * The canary analysis will be completed successfully
 
 # Promoting the Application
