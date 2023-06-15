@@ -73,7 +73,6 @@ Make a code change to the application:
   * Edit the file: **cmd/podinfo/main.go** to change the HTML colour on line: 43
   * Edit the file: **pkg/version/version.go** to increment the version number
   * Edit the file: **charts/podinfo/Chart.yaml** to increment BOTH the app version and helm chart version
-  * Edit the file: **charts/podinfo/values.yaml** to increment the container version in the values
 * Stage all the changes in the Source Control section
 * Make a commit stating: "release container X.X.X and Helm chart X.X.X"
 * Publish the branch, which should also prompt you to create a Pull Request
