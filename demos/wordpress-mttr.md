@@ -40,11 +40,11 @@ Use the password to log in as the admin user.
 
 * Show the blog and the new post
 
-## Migration of the Blog
+## Blog - Attack Detected
 
-We have been instructed to retire the wordpress blog as it has been replaced with an alternative system.
-
-Once confirmation is received that all live services have been moved to the new site, we can retire the cluster.
+We have detected an incoming hacker attack on the blog site, as we are in an unknown state, we are going to rebuild the service.
+This will reset to a known state.
+Meawhile another team is investigating the logs of the attack.
 
 ## Showing the cluster
 
@@ -100,12 +100,6 @@ Now we have approved the PR we have complete traceability of who carried out the
 
 * When the cluster is deleted - should take less than 2 minutes
 * Now go back to the wordpress blog URL to verify that the blog has now gone.
-
-## EMERGENCY - INCIDENT RAISED
-
-We are contacted by an operations team that some alarms are going off and some production systems are having an outage.
-
-It turns out one of the production systems **had not been migrated to the new blog server at all!!**
 
 ## Initiate IMMEDIATE Recovery
 

@@ -3,6 +3,7 @@
 We need:
 * A browser profile in Chrome with the google identity: demo-limited-user@weave.works
 * The Onepassword entry for the SA Demo Limited User in the Weaveworks Shared Vault
+* The cluster **team-shared-host51-cluster25** already deployed from the template: tenant-shared-cluster-template
 
 For Self Service Cluster (optional):
 * Check that cluster: **devteam1-hostxx-cluster30** is not deployed
@@ -12,6 +13,7 @@ For Self Service Cluster (optional):
 
 For Self Service Application:
 * Check that the cluster: **devteam1-hostxx-cluster30** is already deployed as this will be the target cluster
+* Check that the cluster: **team-shared-host51-cluster25** is already deployed as this will be another target cluster
 * Check you have access to the application developers repository: **https://github.com/weavegitops/application-promotion-podinfo**
 * Check that you can make a Pull Request against this repository
 * Install the following extensions in VSCode:
@@ -54,6 +56,7 @@ To deploy a cluster:
 
 To deploy a Helm chart application with a pipeline:
 * First check to see if the cluster: **devteam1-hostxx-cluster30** is already deployed.
+* Check that the cluster: **team-shared-host51-cluster25** is already deployed 
 * Now go to Templates
 * Use the template: **app-podinfo-chart-and-pipeline-devteam1**
 * Leave the default values
@@ -99,6 +102,11 @@ Now we can release the Helm chart with the new container version.
 * Click on the Merge button to merge the code and run the Helm release process
 * Go back to WGE and show the pipelines view and explain that once the chart is released it will deploy to dev automatically
 * Show the Delivery view and wait for the dev podinfo starts to rollout the application
+* Show the application URL to show the colour change happening, links are here:
+* http://demo3-cluster30.weavegitops.com/dev/podinfo/
+* http://demo3-cluster30.weavegitops.com/stg/podinfo/
+* http://demo3-cluster30.weavegitops.com/prd/podinfo/
+* http://demo3-cluster25.weavegitops.com/prd/podinfo/
 * The canary analysis will be completed successfully
 
 # Promoting the Application
@@ -128,6 +136,7 @@ To reset the demo we need to remove the pipeline and Helmrelease objects these a
 * clusters/devteam1/devteam1-host25-cluster30/app-podinfo-dev
 * clusters/devteam1/devteam1-host25-cluster30/app-podinfo-stg
 * clusters/devteam1/devteam1-host25-cluster30/app-podinfo-prd
+* clusters/default/team-shared-host51-cluster25/app-podinfo-prd
 
 ## Cluster Self Service
 
