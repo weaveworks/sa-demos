@@ -62,6 +62,12 @@ To deploy a Helm chart application with a pipeline:
 * Show the pipeline in the Pipelines view
 * Show the Delivery view and that each deployment has initialised
 
+# Making a code change to the application in VSCode that fails
+
+You can carry out the process to make a change and attempt to roll out, but it fails the canary process
+by following the instructions here:
+self-service-tenant-canary-failure.md
+
 # Making a code change to the application in VSCode
 
 Make a code change to the application:
@@ -70,7 +76,6 @@ Make a code change to the application:
   * Edit the file: **cmd/podinfo/main.go** to change the HTML colour on line: 43
   * Edit the file: **pkg/version/version.go** to increment the version number
   * Edit the file: **charts/podinfo/Chart.yaml** to increment BOTH the app version and helm chart version
-  * Edit the file: **charts/podinfo/values.yaml** to increment the container version in the values
 * Stage all the changes in the Source Control section
 * Make a commit stating: "release container X.X.X and Helm chart X.X.X"
 * Publish the branch, which should also prompt you to create a Pull Request
@@ -81,7 +86,7 @@ Make a code change to the application:
 Now we have an open pull request this will automatically deploy the application from the Pull Request to a test environment where we can see our changes deployed before we merge the pull request.
 
 To see the application:
-* Go to GitopsSets in the WGE UI
+* Go to GitopsSets in the WGE UI or VScode plugin
 * Click on the app-promo-podinfo-pullrequests Gitops Set
 * There should be 2 resources created, click on the HelmRelease
 * Show the Helmrelease and see the app-url, click on it to show the application
