@@ -69,7 +69,7 @@ To deploy a Helm chart application with a pipeline:
 
 You can carry out the process to make a change and attempt to roll out, but it fails the canary process
 by following the instructions here:
-self-service-tenant-canary-failure.md
+[Canary Failure Instructions](self-service-tenant-canary-failure.md)
 
 # Making a code change to the application in VSCode
 
