@@ -36,6 +36,7 @@ Now we can release the Helm chart with the new container version.
 * Go back to WGE and show the pipelines view and explain that once the chart is released it will deploy to dev automatically
 * Show the Delivery view and wait for the dev podinfo starts to rollout the application
 * The canary analysis will FAIL
+* Once the Helm chart test process times out (5 minutes) then it will rollback the Helm chart to the previous version.
 
 # Making a code change to the application in VSCode (fixing the issue)
 
@@ -45,6 +46,7 @@ Make a code change to the application:
 * Make a change to increment the version of the Helm chart
   * Edit the file: **charts/podinfo/Chart.yaml** to increment the helm chart version
   * Edit the file: **charts/podinfo/values.yaml** to modify the nodePort and externalPort back to 9898 to fix the issue
+* NOTE: You do NOT need to release a new version of the container, only the Helm chart, due to the default values being changed.
 * Stage all the changes in the Source Control section
 * Make a commit stating: "fix Helm chart and release x.x.x"
 * Publish the branch, which should also prompt you to create a Pull Request
