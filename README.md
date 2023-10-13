@@ -7,17 +7,12 @@ Consult [this table in notion](https://www.notion.so/weaveworks/e68deffcc9f24095
 
 # Demo Environment Status
 
-## Demo2 can be used for customer demos
-https://demo2.weavegitops.com
-- EKS is working use **aws-eks-dev** to create clusters
-- LM provisioning is working with the **lm-edge** template
-- Demo clusters that must be deleted after the demo, just use: **demo-cluster-template** with the default values.
-
-## Demo3 can be used for customer demos
+## Demo2 has been deleted
+## Demo3 DNS is no longer accessible
 https://demo3.weavegitops.com
-- EKS is working use **aws-eks-dev** to create clusters
-- Liquid Metal is working use **lm-edge** to create clusters
-- Demo clusters that must be deleted after the demo, just use: **demo-cluster-template** with the default values.
+
+## Sademo environment from the trial system is where we now do customer demos
+https://sa-demo.trial.cx.weave.works/
 
 ## Accessing the Management Clusters
 
