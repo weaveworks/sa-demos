@@ -1,4 +1,6 @@
 # sa-demos
+THIS REPO IS OUT OF DATE - DEMO INSTRUCTIONS WERE ORIGINALLY WRITTEN FOR DEMO3.
+
 This repository is dealing with the Weave GitOps demos and demo environments. Please use it to file and update issues that you are seeing. You can find the official demo guides here.
 
 # Demo Overview
